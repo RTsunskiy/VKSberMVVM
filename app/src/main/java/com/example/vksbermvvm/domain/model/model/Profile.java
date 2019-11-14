@@ -8,11 +8,23 @@ import java.util.Objects;
 public class Profile {
         private final String mFirstName;
         private final String mLastName;
+        private final String mDate;
+        private final String mCity;
+        private final String mCountry;
 
 
-        public Profile(@NonNull String firstName, @NonNull String lastName) {
+
+
+    public Profile(@NonNull String firstName,
+                   @NonNull String lastName,
+                   @NonNull String bDate,
+                   @NonNull String city,
+                   @NonNull String country) {
             mFirstName = firstName;
             mLastName = lastName;
+            mDate = bDate;
+            mCity = city;
+            mCountry = country;
         }
 
         @Override
@@ -43,6 +55,17 @@ public class Profile {
             return mLastName;
         }
 
+        public String getmDate() {
+        return mDate;
+    }
+
+    public String getmCity() {
+        return mCity;
+    }
+
+    public String getmCountry() {
+        return mCountry;
+    }
     }
 
 

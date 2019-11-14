@@ -22,6 +22,9 @@ public class CurrentUserProfileFragment extends Fragment {
     private ImageView profileImage;
     private TextView firstName;
     private TextView lastName;
+    private TextView bDate;
+    private TextView city;
+    private TextView country;
     private ProfileUserViewModel mViewModel;
     private View mLoadingView;
 
@@ -55,6 +58,9 @@ public class CurrentUserProfileFragment extends Fragment {
         mViewModel.getProfile().observe(this, profile -> {
             firstName.setText(profile.getmFirstName());
             lastName.setText(profile.getmLastName());
+            bDate.setText(profile.getmDate());
+            city.setText(profile.getmCity());
+            country.setText(profile.getmCountry());
         });
         mViewModel.isLoading().observe(this, isLoading -> mLoadingView.setVisibility(isLoading ? View.VISIBLE : View.GONE));
         mViewModel.loadProfile();
@@ -65,6 +71,9 @@ public class CurrentUserProfileFragment extends Fragment {
         firstName = view.findViewById(R.id.first_name_tv);
         lastName = view.findViewById(R.id.last_name_tv);
         mLoadingView = view.findViewById(R.id.loading_view);
+        bDate = view.findViewById(R.id.user_bDate);
+        city = view.findViewById(R.id.user_city);
+        country = view.findViewById(R.id.user_country);
     }
 
 

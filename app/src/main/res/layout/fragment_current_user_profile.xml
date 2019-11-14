@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<LinearLayout
+android:orientation="vertical"
+    android:padding="@dimen/default_padding"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -27,13 +35,73 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="@dimen/default_padding"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:text="@string/user_name"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         tools:text="Иван"
+        android:padding="@dimen/default_padding"
         android:id="@+id/first_name_tv"/>
 
     <TextView
         android:layout_width="wrap_content"
+        android:padding="@dimen/default_padding"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:text="@string/user_last_name"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
         tools:text="Иванов"
+        android:padding="@dimen/default_padding"
         android:layout_height="wrap_content"
         android:id="@+id/last_name_tv"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Дата рождения"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:padding="@dimen/default_padding"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        tools:text="29.10.2019"
+        android:padding="@dimen/default_padding"
+        android:layout_height="wrap_content"
+        android:id="@+id/user_bDate"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Город"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:padding="@dimen/default_padding"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        tools:text="Майкоп"
+        android:padding="@dimen/default_padding"
+        android:layout_height="wrap_content"
+        android:id="@+id/user_city"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Страна"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:padding="@dimen/default_padding"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        tools:text="Россия"
+        android:padding="@dimen/default_padding"
+        android:layout_height="wrap_content"
+        android:id="@+id/user_country"/>
+
+
 </LinearLayout>
+    </ScrollView>

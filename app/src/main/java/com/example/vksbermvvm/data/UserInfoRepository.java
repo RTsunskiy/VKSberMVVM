@@ -2,13 +2,11 @@ package com.example.vksbermvvm.data;
 
 import androidx.annotation.NonNull;
 
-import com.example.vksbermvvm.data.model.ProfileObject;
+import com.example.vksbermvvm.data.model.ResponseExample;
+import com.example.vksbermvvm.data.model.ResponseProfile;
 import com.example.vksbermvvm.domain.model.IProfileRepository;
 import com.example.vksbermvvm.domain.model.model.Profile;
-
 import java.io.IOException;
-
-
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -32,11 +30,15 @@ public class UserInfoRepository implements IProfileRepository {
     @NonNull
     @Override
     public Profile loadProfileInfo() throws IOException {
-        Response<ProfileObject> response = mProfileApi.getUserInfo(CurrentUser.getAccessToken(), "5.103").execute();
+        Response<ResponseExample> response = mProfileApi.getUserInfo(CurrentUser.getAccessToken(), "5.103").execute();
         if (response.body() == null || response.errorBody() != null) {
             throw new IOException("Не удалось загрузить информацию о пользователе");
         }
-        ProfileObject profileObjectInfo = response.body();
-        return new Profile(profileObjectInfo.getFirstName(), profileObjectInfo.getLastName());
+        ResponseExample profileObjectInfo = response.body();
+        return new Profile(profileObjectInfo.response.firstName,
+                profileObjectInfo.response.lastName,
+                profileObjectInfo.response.bdate,
+                profileObjectInfo.response.city.title,
+                profileObjectInfo.response.country.title);
     }
 }
