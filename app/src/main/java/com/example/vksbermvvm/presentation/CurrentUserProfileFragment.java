@@ -11,10 +11,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.vksbermvvm.R;
+import com.squareup.picasso.Picasso;
 
 
 public class CurrentUserProfileFragment extends Fragment {
@@ -29,9 +29,7 @@ public class CurrentUserProfileFragment extends Fragment {
     private View mLoadingView;
 
     public static CurrentUserProfileFragment newInstance() {
-
         Bundle args = new Bundle();
-
         CurrentUserProfileFragment fragment = new CurrentUserProfileFragment();
         fragment.setArguments(args);
         return fragment;
@@ -41,11 +39,8 @@ public class CurrentUserProfileFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_current_user_profile, container, false);
-
         initView(view);
-
         setupMvvm();
-
         return view;
 
     }
@@ -61,6 +56,11 @@ public class CurrentUserProfileFragment extends Fragment {
             bDate.setText(profile.getmDate());
             city.setText(profile.getmCity());
             country.setText(profile.getmCountry());
+            Picasso.with(getActivity().getApplicationContext())
+                    .load(profile.getmProfileImage())
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .error(R.drawable.vk_gray_transparent_shape)
+                    .into(profileImage);
         });
         mViewModel.isLoading().observe(this, isLoading -> mLoadingView.setVisibility(isLoading ? View.VISIBLE : View.GONE));
         mViewModel.loadProfile();
@@ -75,6 +75,7 @@ public class CurrentUserProfileFragment extends Fragment {
         city = view.findViewById(R.id.user_city);
         country = view.findViewById(R.id.user_country);
     }
+
 
 
 }

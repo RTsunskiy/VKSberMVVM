@@ -13,6 +13,7 @@ import com.vk.sdk.VKAccessToken;
 import com.vk.sdk.VKCallback;
 import com.vk.sdk.VKSdk;
 import com.vk.sdk.api.VKError;
+import com.vk.sdk.util.VKUtil;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -57,6 +58,8 @@ public class MainActivity extends AppCompatActivity{
                 .addToBackStack(null)
                 .commit();
     }
+
+
 
     public void checkAuth() {
         if (!CurrentUser.isAuthorized()) {
