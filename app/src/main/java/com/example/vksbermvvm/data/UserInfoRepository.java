@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class UserInfoRepository implements IProfileRepository {
     private static final String BASE_URL = "https://api.vk.com/method/";
     private final String VK_API_VERSION = "5.103";
-    private final String FIELDS = "bdate,home_town,country,photo_50";
+    private final String FIELDS = "bdate,home_town,country,photo_400_orig";
 
     private Retrofit mRetrofit;
     private final JSONPlaceHolderApi mProfileApi;

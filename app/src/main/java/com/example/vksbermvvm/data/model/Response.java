@@ -18,7 +18,7 @@ public class Response {
     public String bdate;
     @SerializedName("country")
     public Country country;
-    @SerializedName("photo_50")
+    @SerializedName("photo_400_orig")
     public String photo50;
     @SerializedName("home_town")
     public String homeTown;

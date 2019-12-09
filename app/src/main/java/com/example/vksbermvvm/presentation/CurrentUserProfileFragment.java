@@ -61,6 +61,7 @@ public class CurrentUserProfileFragment extends Fragment {
                     .placeholder(R.drawable.ic_launcher_background)
                     .error(R.drawable.vk_gray_transparent_shape)
                     .into(profileImage);
+
         });
         mViewModel.isLoading().observe(this, isLoading -> mLoadingView.setVisibility(isLoading ? View.VISIBLE : View.GONE));
         mViewModel.loadProfile();
