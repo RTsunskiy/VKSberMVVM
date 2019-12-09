@@ -2,16 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/action_map"
-        android:icon="@android:drawable/ic_dialog_map"
-        android:title="Профиль"/>
+        android:id="@+id/action_my_profile"
+        android:icon="@drawable/ic_my_profile_icon_24dp"
+        android:title="@string/string_my_profile"/>
     <item
-        android:id="@+id/action_dial"
-        android:icon="@android:drawable/ic_dialog_dialer"
-        android:title="Друзья" />
+        android:id="@+id/action_my_friends"
+        android:icon="@drawable/ic_my_friends_24dp"
+        android:title="@string/string_my_friends" />
     <item
-        android:id="@+id/action_mail"
-        android:icon="@android:drawable/ic_dialog_email"
-        android:title="Группы" />
+        android:id="@+id/action_my_groups"
+        android:icon="@drawable/ic_my_groups_24dp"
+        android:title="@string/string_my_groups" />
 
 </menu>

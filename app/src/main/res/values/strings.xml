@@ -4,4 +4,7 @@
     <string name="error_loading_profile">Ошибка при загрузке профиля</string>
     <string name="user_name">Имя</string>
     <string name="user_last_name">Фамилия</string>
+    <string name="string_my_profile">Мой профиль</string>
+    <string name="string_my_friends">Мои друзья</string>
+    <string name="string_my_groups">Мои группы</string>
 </resources>
