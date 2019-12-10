@@ -2,18 +2,18 @@ package com.example.vksbermvvm.presentation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.example.vksbermvvm.R;
 import com.example.vksbermvvm.consts.ApiConsatants;
 import com.example.vksbermvvm.data.CurrentUser;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.vk.sdk.VKAccessToken;
 import com.vk.sdk.VKCallback;
 import com.vk.sdk.VKSdk;
 import com.vk.sdk.api.VKError;
-import com.vk.sdk.util.VKUtil;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -23,6 +23,32 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         checkAuth();
+
+        @SuppressLint("ResourceType")
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                menuItem -> {
+                    switch (menuItem.getItemId()) {
+                        case R.id.action_my_profile:
+                            getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.root_layout, CurrentUserProfileFragment.newInstance())
+                                    .addToBackStack(null)
+                                    .commit();
+                            break;
+                        case R.id.action_my_friends:
+                        getSupportFragmentManager()
+                                .beginTransaction()
+                                .add(R.id.root_layout, FriendsListFragment.newInstance())
+                                .addToBackStack(null)
+                                .commit();
+                            break;
+                        case R.id.action_my_groups:
+                            break;
+                    }
+                    return false;
+                });
     }
 
 

@@ -1,10 +1,10 @@
-package com.example.vksbermvvm.data.friendsObject;
+package com.example.vksbermvvm.data.modelFriends;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Response {
+public class ResponseFriends {
 
     @SerializedName("count")
     public Integer count;

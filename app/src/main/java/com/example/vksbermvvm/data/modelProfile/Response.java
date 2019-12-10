@@ -1,8 +1,8 @@
-package com.example.vksbermvvm.data.friendsObject;
+package com.example.vksbermvvm.data.modelProfile;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Item {
+public class Response {
 
     @SerializedName("id")
     public Integer id;
@@ -14,21 +14,13 @@ public class Item {
     public Boolean isClosed;
     @SerializedName("can_access_closed")
     public Boolean canAccessClosed;
-    @SerializedName("nickname")
-    public String nickname;
-    @SerializedName("domain")
-    public String domain;
     @SerializedName("bdate")
     public String bdate;
-    @SerializedName("city")
-    public City city;
     @SerializedName("country")
     public Country country;
-    @SerializedName("photo_200_orig")
-    public String photo200Orig;
-    @SerializedName("online")
-    public Integer online;
-    @SerializedName("track_code")
-    public String trackCode;
+    @SerializedName("photo_400_orig")
+    public String photo50;
+    @SerializedName("home_town")
+    public String homeTown;
 
 }

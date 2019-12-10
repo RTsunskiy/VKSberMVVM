@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import com.example.vksbermvvm.domain.model.model.Profile;
 
 import java.io.IOException;
+import java.util.List;
 
 
 public class ProfileInfoInteractor {
@@ -21,6 +22,14 @@ public class ProfileInfoInteractor {
             return mProfileRepository.loadProfileInfo();
         } catch (IOException e) {
             throw new LoadProfileException("Не удалось загрузить профиль пользователя", e);
+        }
+    }
+
+    public List<Profile> loadFriendsList() throws LoadFriendsException {
+        try {
+            return mProfileRepository.loadFriendsList();
+        } catch (IOException e) {
+            throw new LoadFriendsException("Не удалось загрузить список друзей", e);
         }
     }
 }

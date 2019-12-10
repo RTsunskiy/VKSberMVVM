@@ -2,10 +2,15 @@ package com.example.vksbermvvm.data;
 
 import androidx.annotation.NonNull;
 
-import com.example.vksbermvvm.data.model.ResponseExample;
+import com.example.vksbermvvm.data.modelFriends.Item;
+import com.example.vksbermvvm.data.modelFriends.ResponseFriends;
+import com.example.vksbermvvm.data.modelProfile.ResponseExample;
 import com.example.vksbermvvm.domain.model.IProfileRepository;
 import com.example.vksbermvvm.domain.model.model.Profile;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -13,10 +18,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class UserInfoRepository implements IProfileRepository {
     private static final String BASE_URL = "https://api.vk.com/method/";
     private final String VK_API_VERSION = "5.103";
-    private final String FIELDS = "bdate,home_town,country,photo_400_orig";
+    private final String PROFILE_FIELDS = "bdate,home_town,country,photo_400_orig";
+    private final String FRIENDS_FIELDS = "city,domain,nickname,bdate,city,country,photo_200_orig";
 
     private Retrofit mRetrofit;
     private final JSONPlaceHolderApi mProfileApi;
+
+    private final List<Profile> friendsList = new ArrayList<>();
 
 
     public UserInfoRepository() {
@@ -33,7 +41,7 @@ public class UserInfoRepository implements IProfileRepository {
     @Override
     public Profile loadProfileInfo() throws IOException {
         Response<ResponseExample> response = mProfileApi.getUserInfo(CurrentUser.getAccessToken(),
-                FIELDS,
+                PROFILE_FIELDS,
                 VK_API_VERSION).execute();
         if (response.body() == null || response.errorBody() != null) {
             throw new IOException("Не удалось загрузить информацию о пользователе");
@@ -45,5 +53,29 @@ public class UserInfoRepository implements IProfileRepository {
                 profileObjectInfo.response.get(0).homeTown,
                 profileObjectInfo.response.get(0).country.title,
                 profileObjectInfo.response.get(0).photo50);
+    }
+
+    @NonNull
+    @Override
+    public List<Profile> loadFriendsList() throws IOException {
+        Response<ResponseFriends> response = mProfileApi.getFriends(CurrentUser.getAccessToken(),
+                FRIENDS_FIELDS,
+                VK_API_VERSION).execute();
+        if (response.body() == null || response.errorBody() != null) {
+            throw new IOException("Не удалось загрузить список друзей");
+        }
+response.body();
+        ResponseFriends friendObjectInfo = response.body();
+
+        for (Item responseFriends : friendObjectInfo.items) {
+            friendsList.clear();
+            friendsList.add(new Profile(friendObjectInfo.items.get(0).firstName,
+                    responseFriends.lastName,
+                    responseFriends.bdate,
+                    responseFriends.country.title,
+                    responseFriends.country.title,
+                    responseFriends.photo200Orig));
+        }
+        return friendsList;
     }
 }

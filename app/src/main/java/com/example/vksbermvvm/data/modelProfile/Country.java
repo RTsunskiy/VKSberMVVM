@@ -1,4 +1,4 @@
-package com.example.vksbermvvm.data.model;
+package com.example.vksbermvvm.data.modelProfile;
 
 import com.google.gson.annotations.SerializedName;
 
