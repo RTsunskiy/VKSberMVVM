@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity{
                         case R.id.action_my_friends:
                         getSupportFragmentManager()
                                 .beginTransaction()
-                                .add(R.id.root_layout, FriendsListFragment.newInstance())
+                                .replace(R.id.root_layout, FriendsListFragment.newInstance())
                                 .addToBackStack(null)
                                 .commit();
                             break;

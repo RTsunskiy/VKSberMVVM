@@ -2,6 +2,7 @@ package com.example.vksbermvvm.data;
 
 import androidx.annotation.NonNull;
 
+import com.example.vksbermvvm.data.modelFriends.Friends;
 import com.example.vksbermvvm.data.modelFriends.Item;
 import com.example.vksbermvvm.data.modelFriends.ResponseFriends;
 import com.example.vksbermvvm.data.modelProfile.ResponseExample;
@@ -58,22 +59,23 @@ public class UserInfoRepository implements IProfileRepository {
     @NonNull
     @Override
     public List<Profile> loadFriendsList() throws IOException {
-        Response<ResponseFriends> response = mProfileApi.getFriends(CurrentUser.getAccessToken(),
+        Response<Friends> response = mProfileApi.getFriends(CurrentUser.getAccessToken(),
                 FRIENDS_FIELDS,
                 VK_API_VERSION).execute();
         if (response.body() == null || response.errorBody() != null) {
             throw new IOException("Не удалось загрузить список друзей");
         }
-response.body();
-        ResponseFriends friendObjectInfo = response.body();
 
-        for (Item responseFriends : friendObjectInfo.items) {
-            friendsList.clear();
-            friendsList.add(new Profile(friendObjectInfo.items.get(0).firstName,
+        Friends friends = response.body();
+        friendsList.clear();
+        for (Item responseFriends : friends.response.items) {
+            friendsList.add(new Profile(responseFriends.firstName,
                     responseFriends.lastName,
                     responseFriends.bdate,
-                    responseFriends.country.title,
-                    responseFriends.country.title,
+//                    responseFriends.city.title,
+//                    responseFriends.country.title,
+                    "jkjhkjh",
+                    "jkhkjhj",
                     responseFriends.photo200Orig));
         }
         return friendsList;

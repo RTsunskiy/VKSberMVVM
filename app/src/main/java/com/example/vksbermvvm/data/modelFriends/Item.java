@@ -28,5 +28,7 @@ public class Item {
     public Integer online;
     @SerializedName("track_code")
     public String trackCode;
+    @SerializedName("city")
+    public City city;
 
 }
