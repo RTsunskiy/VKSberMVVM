@@ -95,5 +95,4 @@ public class CurrentUserProfileFragment extends Fragment {
     }
 
 
-
 }

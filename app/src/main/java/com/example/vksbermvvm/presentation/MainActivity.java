@@ -16,7 +16,7 @@ import com.vk.sdk.VKCallback;
 import com.vk.sdk.VKSdk;
 import com.vk.sdk.api.VKError;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -41,11 +41,11 @@ public class MainActivity extends AppCompatActivity{
                             break;
                         case R.id.action_my_friends:
                             menuItem.setChecked(true);
-                        getSupportFragmentManager()
-                                .beginTransaction()
-                                .replace(R.id.root_layout, FriendsListFragment.newInstance())
-                                .addToBackStack(null)
-                                .commit();
+                            getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.root_layout, FriendsListFragment.newInstance())
+                                    .addToBackStack(null)
+                                    .commit();
                             break;
                         case R.id.action_my_groups:
                             break;
@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity{
                     return false;
                 });
     }
-
 
 
     @Override
@@ -89,10 +88,9 @@ public class MainActivity extends AppCompatActivity{
     }
 
 
-
     public void checkAuth() {
         if (!CurrentUser.isAuthorized()) {
-           startSignIn();
+            startSignIn();
         } else {
             signedIn();
         }

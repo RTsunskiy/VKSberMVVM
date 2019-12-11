@@ -2,14 +2,11 @@ package com.example.vksbermvvm.domain.model;
 
 import androidx.annotation.NonNull;
 
-
-import com.example.vksbermvvm.data.modelAlbumPhotos.AlbumPhotos;
 import com.example.vksbermvvm.domain.model.model.AlbumPhoto;
 import com.example.vksbermvvm.domain.model.model.Profile;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 
 public class ProfileInfoInteractor {

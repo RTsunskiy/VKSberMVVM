@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vksbermvvm.R;
-import com.example.vksbermvvm.data.CurrentUser;
 import com.example.vksbermvvm.domain.model.model.Profile;
 import com.squareup.picasso.Picasso;
 
@@ -54,11 +53,11 @@ public class FriendProfileFragment extends Fragment {
         ((TextView) view.findViewById(R.id.user_city)).setText(profile.getmCity());
         ((TextView) view.findViewById(R.id.user_country)).setText(profile.getmCountry());
         mRecyclerView = view.findViewById(R.id.album_recycler);
-            Picasso.with(getActivity().getApplicationContext())
-                    .load(profile.getmProfileImage())
-                    .placeholder(R.drawable.ic_launcher_background)
-                    .error(R.drawable.vk_gray_transparent_shape)
-                    .into((ImageView) view.findViewById(R.id.profile_image));
+        Picasso.with(getActivity().getApplicationContext())
+                .load(profile.getmProfileImage())
+                .placeholder(R.drawable.ic_launcher_background)
+                .error(R.drawable.vk_gray_transparent_shape)
+                .into((ImageView) view.findViewById(R.id.profile_image));
 
         mViewModel.loadAlbumPhoto(String.valueOf(profile.getmId()));
         mViewModel.getAlbum().observe(this, albumPhotos -> {

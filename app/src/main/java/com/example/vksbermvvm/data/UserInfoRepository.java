@@ -9,6 +9,7 @@ import com.example.vksbermvvm.data.modelProfile.ResponseExample;
 import com.example.vksbermvvm.domain.model.IProfileRepository;
 import com.example.vksbermvvm.domain.model.model.AlbumPhoto;
 import com.example.vksbermvvm.domain.model.model.Profile;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -78,12 +79,14 @@ public class UserInfoRepository implements IProfileRepository {
         for (Item responseFriends : friends.response.items) {
             if (responseFriends.city != null) {
                 friendCity = responseFriends.city.title;
+            } else {
+                friendCity = "Город отсутствует";
             }
-            else {friendCity = "Город отсутствует";}
             if (responseFriends.country != null) {
                 friendCountry = responseFriends.country.title;
+            } else {
+                friendCountry = "Страна отсутствует";
             }
-            else {friendCountry = "Страна отсутствует";}
             friendsList.add(new Profile(responseFriends.firstName,
                     responseFriends.lastName,
                     responseFriends.bdate,
@@ -99,7 +102,7 @@ public class UserInfoRepository implements IProfileRepository {
     @Override
     public List<AlbumPhoto> loadAlbumPhotos(String userId) throws IOException {
         Response<AlbumPhotos> response = mProfileApi.getAlbumPhotos(CurrentUser.getAccessToken(),
-                 userId,
+                userId,
                 ALBUM_PHOTOS_SIZES,
                 ALBUM_PHOTOS_HIDDEN,
                 VK_API_VERSION).execute();

@@ -23,8 +23,8 @@ public class FriendProfileViewModel extends ViewModel {
     private final IResourceWrapper mResourceWrapper;
 
     FriendProfileViewModel(@NonNull Executor executor,
-                         @NonNull ProfileInfoInteractor profileInfoInteractor,
-                         @NonNull IResourceWrapper resourceWrapper) {
+                           @NonNull ProfileInfoInteractor profileInfoInteractor,
+                           @NonNull IResourceWrapper resourceWrapper) {
         mProfileInfoInteractor = profileInfoInteractor;
         mExecutor = executor;
         mResourceWrapper = resourceWrapper;
