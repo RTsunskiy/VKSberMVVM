@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vksbermvvm.R;
-import com.squareup.picasso.Picasso;
 
 public class FriendsListFragment extends Fragment {
 
@@ -23,6 +22,11 @@ public class FriendsListFragment extends Fragment {
     private FriendsListViewModel mFriendsListViewModel;
     private View mLoadingView;
     private FriendsListAdapter mFriendsListAdapter;
+    private OnFriendClickListener mOnFriendClickListener = (profile) ->
+            requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.root_layout, FriendProfileFragment.newInstance(profile))
+                    .addToBackStack(FriendProfileFragment.class.getSimpleName())
+                    .commit();
 
     public static FriendsListFragment newInstance() {
         Bundle args = new Bundle();
@@ -49,6 +53,7 @@ public class FriendsListFragment extends Fragment {
                 Toast.makeText(getActivity(), error, Toast.LENGTH_LONG).show());
         mFriendsListViewModel.getFriendsList().observe(this, friendsList -> {
             mFriendsListAdapter = new FriendsListAdapter(getActivity(), friendsList);
+            mFriendsListAdapter.setClickListener(mOnFriendClickListener);
             mFriendsRecycler.setAdapter(mFriendsListAdapter);
             DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL);
             mFriendsRecycler.addItemDecoration(dividerItemDecoration);

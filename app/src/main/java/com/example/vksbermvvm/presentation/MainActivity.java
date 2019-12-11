@@ -1,9 +1,10 @@
 package com.example.vksbermvvm.presentation;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.example.vksbermvvm.R;
@@ -18,19 +19,20 @@ import com.vk.sdk.api.VKError;
 public class MainActivity extends AppCompatActivity{
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         checkAuth();
 
-        @SuppressLint("ResourceType")
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 menuItem -> {
                     switch (menuItem.getItemId()) {
                         case R.id.action_my_profile:
+                            menuItem.setChecked(true);
                             getSupportFragmentManager()
                                     .beginTransaction()
                                     .replace(R.id.root_layout, CurrentUserProfileFragment.newInstance())
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity{
                                     .commit();
                             break;
                         case R.id.action_my_friends:
+                            menuItem.setChecked(true);
                         getSupportFragmentManager()
                                 .beginTransaction()
                                 .replace(R.id.root_layout, FriendsListFragment.newInstance())

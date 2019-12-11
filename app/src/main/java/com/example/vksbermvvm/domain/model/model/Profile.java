@@ -1,16 +1,20 @@
 package com.example.vksbermvvm.domain.model.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.annotation.NonNull;
 
 
 import java.util.Objects;
 
-public class Profile {
+public class Profile implements Parcelable {
     private final String mFirstName;
     private final String mLastName;
     private final String mDate;
     private final String mCity;
     private final String mCountry;
+    private final int mId;
 
 
     private final String mProfileImage;
@@ -21,14 +25,38 @@ public class Profile {
                    @NonNull String bDate,
                    @NonNull String city,
                    @NonNull String country,
-                   @NonNull String profileImage) {
+                   @NonNull String profileImage,
+                   @NonNull int id) {
         mFirstName = firstName;
         mLastName = lastName;
         mDate = bDate;
         mCity = city;
         mCountry = country;
         mProfileImage = profileImage;
+        mId = id;
     }
+
+    protected Profile(Parcel in) {
+        mFirstName = in.readString();
+        mLastName = in.readString();
+        mDate = in.readString();
+        mCity = in.readString();
+        mCountry = in.readString();
+        mId = in.readInt();
+        mProfileImage = in.readString();
+    }
+
+    public static final Creator<Profile> CREATOR = new Creator<Profile>() {
+        @Override
+        public Profile createFromParcel(Parcel in) {
+            return new Profile(in);
+        }
+
+        @Override
+        public Profile[] newArray(int size) {
+            return new Profile[size];
+        }
+    };
 
     @Override
     public boolean equals(Object o) {
@@ -72,6 +100,25 @@ public class Profile {
 
     public String getmCountry() {
         return mCountry;
+    }
+
+    public int getmId() {
+        return mId;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(mFirstName);
+        dest.writeString(mDate);
+        dest.writeString(mLastName);
+        dest.writeString(mCity);
+        dest.writeString(mCountry);
+        dest.writeInt(mId);
     }
 }
 

@@ -2,6 +2,7 @@
     <string name="app_name">VKSberMVVM</string>
     <integer name="com_vk_sdk_AppId">7206831</integer>
     <string name="error_loading_profile">Ошибка при загрузке профиля</string>
+    <string name="error_loading_album">Ошибка при загрузке альбома</string>
     <string name="error_loading_friends">Ошибка при загрузке списка друзей</string>
     <string name="user_name">Имя</string>
     <string name="user_last_name">Фамилия</string>

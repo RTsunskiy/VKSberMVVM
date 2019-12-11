@@ -14,23 +14,23 @@ import com.example.vksbermvvm.presentation.utils.ResourceWrapper;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-public class ProfileViewModelFactory extends ViewModelProvider.NewInstanceFactory {
+public class FriendProfileViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 
     private final Context mApplicationContext;
 
-    public ProfileViewModelFactory(@NonNull Context context) {
+    public FriendProfileViewModelFactory(@NonNull Context context) {
         mApplicationContext = context.getApplicationContext();
     }
 
     @NonNull
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-        if (ProfileUserViewModel.class.equals(modelClass)) {
+        if (FriendProfileViewModel.class.equals(modelClass)) {
             IProfileRepository profileRepository = new UserInfoRepository();
             ProfileInfoInteractor interactor = new ProfileInfoInteractor(profileRepository);
-            Executor executor = Executors.newFixedThreadPool(4);
+            Executor executor = Executors.newSingleThreadExecutor();
             ResourceWrapper resourceWrapper = new ResourceWrapper(mApplicationContext.getResources());
-            return (T) new ProfileUserViewModel(
+            return (T) new FriendProfileViewModel(
                     executor,
                     interactor,
                     resourceWrapper);

@@ -12,21 +12,26 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vksbermvvm.R;
+import com.example.vksbermvvm.data.CurrentUser;
 import com.squareup.picasso.Picasso;
 
 
 public class CurrentUserProfileFragment extends Fragment {
 
     private ImageView profileImage;
-    private TextView firstName;
-    private TextView lastName;
-    private TextView bDate;
-    private TextView city;
-    private TextView country;
+    private TextView mFirstName;
+    private TextView mLastName;
+    private TextView mBDate;
+    private TextView mCity;
+    private TextView mCountry;
     private ProfileUserViewModel mViewModel;
     private View mLoadingView;
+    private RecyclerView mRecyclerView;
+    private AlbumPhotoAdapter mAlbumPhotoAdapter;
 
     public static CurrentUserProfileFragment newInstance() {
         Bundle args = new Bundle();
@@ -50,12 +55,14 @@ public class CurrentUserProfileFragment extends Fragment {
                 .get(ProfileUserViewModel.class);
         mViewModel.getErrors().observe(this, error ->
                 Toast.makeText(getActivity(), error, Toast.LENGTH_LONG).show());
+
+
         mViewModel.getProfile().observe(this, profile -> {
-            firstName.setText(profile.getmFirstName());
-            lastName.setText(profile.getmLastName());
-            bDate.setText(profile.getmDate());
-            city.setText(profile.getmCity());
-            country.setText(profile.getmCountry());
+            mFirstName.setText(profile.getmFirstName());
+            mLastName.setText(profile.getmLastName());
+            mBDate.setText(profile.getmDate());
+            mCity.setText(profile.getmCity());
+            mCountry.setText(profile.getmCountry());
             Picasso.with(getActivity().getApplicationContext())
                     .load(profile.getmProfileImage())
                     .placeholder(R.drawable.ic_launcher_background)
@@ -65,16 +72,26 @@ public class CurrentUserProfileFragment extends Fragment {
         });
         mViewModel.isLoading().observe(this, isLoading -> mLoadingView.setVisibility(isLoading ? View.VISIBLE : View.GONE));
         mViewModel.loadProfile();
+        mViewModel.loadAlbumPhoto(CurrentUser.getId());
+        mViewModel.getAlbum().observe(this, albumPhotos -> {
+            mAlbumPhotoAdapter = new AlbumPhotoAdapter(getActivity(), albumPhotos);
+            mRecyclerView.setAdapter(mAlbumPhotoAdapter);
+            LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(),
+                    LinearLayoutManager.HORIZONTAL,
+                    false);
+            mRecyclerView.setLayoutManager(layoutManager);
+        });
     }
 
     private void initView(View view) {
         profileImage = view.findViewById(R.id.profile_image);
-        firstName = view.findViewById(R.id.first_name_tv);
-        lastName = view.findViewById(R.id.last_name_tv);
+        mFirstName = view.findViewById(R.id.first_name_tv);
+        mLastName = view.findViewById(R.id.last_name_tv);
         mLoadingView = view.findViewById(R.id.loading_view);
-        bDate = view.findViewById(R.id.user_bDate);
-        city = view.findViewById(R.id.user_city);
-        country = view.findViewById(R.id.user_country);
+        mBDate = view.findViewById(R.id.user_bDate);
+        mCity = view.findViewById(R.id.user_city);
+        mCountry = view.findViewById(R.id.user_country);
+        mRecyclerView = view.findViewById(R.id.album_recycler);
     }
 
 

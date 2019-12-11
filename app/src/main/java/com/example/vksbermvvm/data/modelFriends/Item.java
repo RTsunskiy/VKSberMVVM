@@ -23,7 +23,7 @@ public class Item {
     @SerializedName("country")
     public Country country;
     @SerializedName("photo_200_orig")
-    public String photo200Orig;
+    public String photo_200_orig;
     @SerializedName("online")
     public Integer online;
     @SerializedName("track_code")

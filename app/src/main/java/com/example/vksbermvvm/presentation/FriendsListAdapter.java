@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vksbermvvm.R;
@@ -22,10 +24,15 @@ public class FriendsListAdapter extends RecyclerView.Adapter<FriendsListAdapter.
 
     private Context mContext;
     private List<Profile> mFriendsList;
+    private OnFriendClickListener mClickListener;
 
     public FriendsListAdapter(Context context, List<Profile> friendsList) {
         mContext = context;
         mFriendsList = new ArrayList<>(friendsList);
+    }
+
+    public void setClickListener(@Nullable OnFriendClickListener clickListener) {
+        mClickListener = clickListener;
     }
 
     @NonNull
@@ -45,6 +52,12 @@ public class FriendsListAdapter extends RecyclerView.Adapter<FriendsListAdapter.
                 .placeholder(R.drawable.ic_launcher_background)
                 .error(R.drawable.vk_gray_transparent_shape)
                 .into(holder.friendPhoto);
+        holder.itemView.setOnClickListener(v -> {
+            if (mClickListener != null) {
+                mClickListener.onItemClick(mFriendsList.get(position));
+            }
+        });
+
     }
 
     @Override
@@ -66,4 +79,6 @@ public class FriendsListAdapter extends RecyclerView.Adapter<FriendsListAdapter.
         }
 
     }
+
+
 }

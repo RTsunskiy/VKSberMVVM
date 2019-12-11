@@ -2,6 +2,7 @@ package com.example.vksbermvvm.domain.model;
 
 import androidx.annotation.NonNull;
 
+import com.example.vksbermvvm.domain.model.model.AlbumPhoto;
 import com.example.vksbermvvm.domain.model.model.Profile;
 
 import java.io.IOException;
@@ -14,4 +15,7 @@ public interface IProfileRepository {
 
     @NonNull
     List<Profile> loadFriendsList() throws IOException;
+
+    @NonNull
+    List<AlbumPhoto> loadAlbumPhotos(String userId) throws IOException;
 }

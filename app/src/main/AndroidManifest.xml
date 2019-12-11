@@ -16,7 +16,8 @@
         android:allowBackup="true">
 
 
-        <activity android:name=".presentation.MainActivity">
+        <activity
+            android:name=".presentation.MainActivity">
 
 
             <intent-filter>
