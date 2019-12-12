@@ -37,6 +37,11 @@ public class FriendProfileFragment extends Fragment {
         return fragment;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+    }
 
     @Nullable
     @Override
@@ -73,7 +78,7 @@ public class FriendProfileFragment extends Fragment {
             mRecyclerView.setLayoutManager(layoutManager);
 
             mOnPhotoClickListener = position -> {
-                mViewPager2.setAdapter(new ViewPagerAdapter(getActivity(), albumPhotos, mViewPager2));
+                mViewPager2.setAdapter(new ViewPagerAdapter(getActivity(), albumPhotos));
                 mViewPager2.setVisibility(View.VISIBLE);
                 mViewPager2.postDelayed(() -> mViewPager2.setCurrentItem(position), 1);
             };

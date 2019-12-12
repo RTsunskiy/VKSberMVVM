@@ -17,6 +17,7 @@ public interface JSONPlaceHolderApi {
 
     @GET("friends.get")
     Call<Friends> getFriends(@Query("access_token") String token,
+                             @Query("order") String order,
                              @Query("fields") String fields,
                              @Query("v") String v);
 
@@ -25,5 +26,6 @@ public interface JSONPlaceHolderApi {
                                      @Query("owner_id") String userId,
                                      @Query("photo_sizes") String photoSizes,
                                      @Query("skip_hidden") String skipHidden,
+                                     @Query("count") String photoCount,
                                      @Query("v") String v);
 }

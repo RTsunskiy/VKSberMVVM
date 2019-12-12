@@ -3,6 +3,7 @@ package com.example.vksbermvvm.data;
 import androidx.annotation.NonNull;
 
 import com.example.vksbermvvm.data.modelAlbumPhotos.AlbumPhotos;
+import com.example.vksbermvvm.data.modelAlbumPhotos.Size;
 import com.example.vksbermvvm.data.modelFriends.Friends;
 import com.example.vksbermvvm.data.modelFriends.Item;
 import com.example.vksbermvvm.data.modelProfile.ResponseExample;
@@ -25,6 +26,8 @@ public class UserInfoRepository implements IProfileRepository {
     private final String FRIENDS_FIELDS = "city,domain,nickname,bdate,city,country,photo_200_orig";
     private final String ALBUM_PHOTOS_SIZES = "1";
     private final String ALBUM_PHOTOS_HIDDEN = "1";
+    private final String ALBUM_PHOTOS_COUNT = "200";
+    private final String FRIENDS_ORDER = "hints";
 
     private Retrofit mRetrofit;
     private final JSONPlaceHolderApi mProfileApi;
@@ -66,6 +69,7 @@ public class UserInfoRepository implements IProfileRepository {
     @Override
     public List<Profile> loadFriendsList() throws IOException {
         Response<Friends> response = mProfileApi.getFriends(CurrentUser.getAccessToken(),
+                FRIENDS_ORDER,
                 FRIENDS_FIELDS,
                 VK_API_VERSION).execute();
         if (response.body() == null || response.errorBody() != null) {
@@ -105,6 +109,7 @@ public class UserInfoRepository implements IProfileRepository {
                 userId,
                 ALBUM_PHOTOS_SIZES,
                 ALBUM_PHOTOS_HIDDEN,
+                ALBUM_PHOTOS_COUNT,
                 VK_API_VERSION).execute();
         if (response.body() == null || response.errorBody() != null) {
             throw new IOException("Не удалось загрузить альбом пользователя");
@@ -112,10 +117,22 @@ public class UserInfoRepository implements IProfileRepository {
         AlbumPhotos photoObjectInfo = response.body();
         photosList.clear();
         for (com.example.vksbermvvm.data.modelAlbumPhotos.Item responseAlbum : photoObjectInfo.response.items) {
+            String sizeType = "";
+            String url = "";
+            for (Size size : responseAlbum.sizes) {
+                if (size.type.equals("z")) {
+                    sizeType = size.type;
+                    url = size.url;
+                }
+                else {
+                    sizeType = responseAlbum.sizes.get(0).type;
+                    url = responseAlbum.sizes.get(0).url;
+                }
+            }
             photosList.add(new AlbumPhoto(responseAlbum.id,
                     responseAlbum.albumId,
-                    responseAlbum.sizes.get(3).type,
-                    responseAlbum.sizes.get(3).url));
+                    sizeType,
+                    url));
         }
         return photosList;
     }

@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,6 +35,12 @@ public class FriendsListFragment extends Fragment {
         return fragment;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -56,8 +61,6 @@ public class FriendsListFragment extends Fragment {
             mFriendsListAdapter = new FriendsListAdapter(getActivity(), friendsList);
             mFriendsListAdapter.setClickListener(mOnFriendClickListener);
             mFriendsRecycler.setAdapter(mFriendsListAdapter);
-            DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL);
-            mFriendsRecycler.addItemDecoration(dividerItemDecoration);
             mFriendsRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
         });
         mFriendsListViewModel.isLoading().observe(this, isLoading -> mLoadingView.setVisibility(isLoading ? View.VISIBLE : View.GONE));

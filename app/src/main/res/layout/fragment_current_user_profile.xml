@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    >
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -31,6 +31,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_background"
         app:layout_scrollFlags="scroll" />
+
 
     </com.google.android.material.appbar.CollapsingToolbarLayout>
 </com.google.android.material.appbar.AppBarLayout>
@@ -63,21 +64,29 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
+                android:paddingStart="@dimen/default_padding"
                 android:text="@string/user_name"
+                android:elevation="5dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <TextView
                 android:id="@+id/first_name_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
                 android:padding="@dimen/default_padding"
                 tools:text="Иван" />
+
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/vk_light_color"
+                android:layout_height="2dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/default_padding"
+                android:paddingStart="@dimen/default_padding"
+                android:paddingEnd="@dimen/default_padding"
                 android:text="@string/user_last_name"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
@@ -85,27 +94,41 @@
                 android:id="@+id/last_name_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
                 android:padding="@dimen/default_padding"
                 tools:text="Иванов" />
+
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/vk_light_color"
+                android:layout_height="2dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/default_padding"
+                android:paddingStart="@dimen/default_padding"
+                android:paddingEnd="@dimen/default_padding"
                 android:text="Дата рождения"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <TextView
                 android:id="@+id/user_bDate"
                 android:layout_width="wrap_content"
+                android:textSize="@dimen/text_size"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/default_padding"
                 tools:text="29.10.2019" />
 
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/vk_light_color"
+                android:layout_height="2dp"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/default_padding"
+                android:paddingStart="@dimen/default_padding"
+                android:paddingEnd="@dimen/default_padding"
                 android:text="Город"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
@@ -113,13 +136,20 @@
                 android:id="@+id/user_city"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
                 android:padding="@dimen/default_padding"
                 tools:text="Майкоп" />
+
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/vk_light_color"
+                android:layout_height="2dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/default_padding"
+                android:paddingStart="@dimen/default_padding"
+                android:paddingEnd="@dimen/default_padding"
                 android:text="Страна"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
@@ -127,16 +157,22 @@
                 android:id="@+id/user_country"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
                 android:padding="@dimen/default_padding"
                 tools:text="Россия" />
+
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/vk_light_color"
+                android:layout_height="2dp"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/album_recycler"
                     android:layout_width="match_parent"
+                    android:paddingTop="@dimen/default_padding"
                     android:layout_height="wrap_content" />
-
-
         </LinearLayout>
+
 
     </androidx.core.widget.NestedScrollView>
     <androidx.viewpager2.widget.ViewPager2

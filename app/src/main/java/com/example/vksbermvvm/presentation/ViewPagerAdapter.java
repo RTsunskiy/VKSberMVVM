@@ -8,7 +8,6 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.vksbermvvm.R;
 import com.example.vksbermvvm.domain.model.model.AlbumPhoto;
@@ -19,14 +18,12 @@ import java.util.List;
 public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.AlbumPhotoHolder> {
 
     private List<AlbumPhoto> mAlbumPhotoList;
-    private ViewPager2 mViewPager2;
     private Context mContext;
 
 
 
-    ViewPagerAdapter(Context context, List<AlbumPhoto> albumPhotos, ViewPager2 viewPager2) {
+    ViewPagerAdapter(Context context, List<AlbumPhoto> albumPhotos) {
         mAlbumPhotoList = albumPhotos;
-        mViewPager2 = viewPager2;
         mContext = context;
     }
 
@@ -55,7 +52,8 @@ public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.Albu
     }
 
 
-        class AlbumPhotoHolder extends RecyclerView.ViewHolder {
+
+    class AlbumPhotoHolder extends RecyclerView.ViewHolder {
         ImageView mAlbumPhoto;
 
             AlbumPhotoHolder(@NonNull View itemView) {

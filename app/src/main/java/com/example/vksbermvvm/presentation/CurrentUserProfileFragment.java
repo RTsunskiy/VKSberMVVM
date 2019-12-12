@@ -43,6 +43,13 @@ public class CurrentUserProfileFragment extends Fragment {
         return fragment;
     }
 
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -87,7 +94,8 @@ public class CurrentUserProfileFragment extends Fragment {
         mRecyclerView.setLayoutManager(layoutManager);
 
         mOnPhotoClickListener = position -> {
-            mViewPager2.setAdapter(new ViewPagerAdapter(getActivity(), albumPhotos, mViewPager2));
+            mViewPager2.setAdapter(new ViewPagerAdapter(getActivity(), albumPhotos));
+            mViewPager2.setUserInputEnabled(true);
             mViewPager2.setVisibility(View.VISIBLE);
             mViewPager2.postDelayed(() -> mViewPager2.setCurrentItem(position), 1);
         };

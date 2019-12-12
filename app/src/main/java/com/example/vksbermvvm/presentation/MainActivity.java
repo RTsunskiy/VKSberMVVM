@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
     public void signedIn() {
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.root_layout, CurrentUserProfileFragment.newInstance())
+                .replace(R.id.root_layout, CurrentUserProfileFragment.newInstance())
                 .addToBackStack(null)
                 .commit();
     }
