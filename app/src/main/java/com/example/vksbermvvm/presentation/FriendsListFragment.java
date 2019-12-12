@@ -22,11 +22,12 @@ public class FriendsListFragment extends Fragment {
     private FriendsListViewModel mFriendsListViewModel;
     private View mLoadingView;
     private FriendsListAdapter mFriendsListAdapter;
-    private OnFriendClickListener mOnFriendClickListener = (profile) ->
-            requireActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.root_layout, FriendProfileFragment.newInstance(profile))
-                    .addToBackStack(FriendProfileFragment.class.getSimpleName())
-                    .commit();
+    private OnFriendClickListener mOnFriendClickListener = (profile) -> requireActivity()
+            .getSupportFragmentManager()
+            .beginTransaction()
+            .replace(R.id.root_layout, FriendProfileFragment.newInstance(profile))
+            .addToBackStack(FriendProfileFragment.class.getSimpleName())
+            .commit();
 
     public static FriendsListFragment newInstance() {
         Bundle args = new Bundle();

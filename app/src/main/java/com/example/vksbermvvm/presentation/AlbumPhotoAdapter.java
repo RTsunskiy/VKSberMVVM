@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vksbermvvm.R;
@@ -21,10 +22,15 @@ public class AlbumPhotoAdapter extends RecyclerView.Adapter<AlbumPhotoAdapter.Al
 
     private Context mContext;
     private List<AlbumPhoto> mPhotosList;
+    private OnAlbumPhotoClickListener mClickListener;
 
     public AlbumPhotoAdapter(Context context, List<AlbumPhoto> photosList) {
         mContext = context;
         mPhotosList = new ArrayList<>(photosList);
+    }
+
+    public void setClickListener(@Nullable OnAlbumPhotoClickListener clickListener) {
+        mClickListener = clickListener;
     }
 
 
@@ -43,6 +49,12 @@ public class AlbumPhotoAdapter extends RecyclerView.Adapter<AlbumPhotoAdapter.Al
                 .placeholder(R.drawable.ic_launcher_background)
                 .error(R.drawable.vk_gray_transparent_shape)
                 .into(holder.albumPhoto);
+
+        holder.itemView.setOnClickListener(v -> {
+            if (mClickListener != null) {
+                mClickListener.onItemClick(position);
+            }
+        });
     }
 
     @Override

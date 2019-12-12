@@ -135,7 +135,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager2_album_photos"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

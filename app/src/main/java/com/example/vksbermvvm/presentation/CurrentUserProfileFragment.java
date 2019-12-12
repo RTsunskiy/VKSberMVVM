@@ -14,9 +14,11 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.vksbermvvm.R;
 import com.example.vksbermvvm.data.CurrentUser;
+import com.example.vksbermvvm.domain.model.model.AlbumPhoto;
 import com.squareup.picasso.Picasso;
 
 
@@ -32,6 +34,9 @@ public class CurrentUserProfileFragment extends Fragment {
     private View mLoadingView;
     private RecyclerView mRecyclerView;
     private AlbumPhotoAdapter mAlbumPhotoAdapter;
+    private ViewPagerAdapter mViewPagerAdapter;
+    private ViewPager2 mViewPager2;
+    private OnAlbumPhotoClickListener mOnPhotoClickListener;
 
     public static CurrentUserProfileFragment newInstance() {
         Bundle args = new Bundle();
@@ -70,18 +75,29 @@ public class CurrentUserProfileFragment extends Fragment {
                     .into(profileImage);
 
         });
+
         mViewModel.isLoading().observe(this, isLoading -> mLoadingView.setVisibility(isLoading ? View.VISIBLE : View.GONE));
         mViewModel.loadProfile();
         mViewModel.loadAlbumPhoto(CurrentUser.getId());
         mViewModel.getAlbum().observe(this, albumPhotos -> {
-            mAlbumPhotoAdapter = new AlbumPhotoAdapter(getActivity(), albumPhotos);
-            mRecyclerView.setAdapter(mAlbumPhotoAdapter);
-            LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(),
-                    LinearLayoutManager.HORIZONTAL,
-                    false);
-            mRecyclerView.setLayoutManager(layoutManager);
-        });
-    }
+        mAlbumPhotoAdapter = new AlbumPhotoAdapter(getActivity(), albumPhotos);
+
+        mRecyclerView.setAdapter(mAlbumPhotoAdapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(),
+                LinearLayoutManager.HORIZONTAL,
+                false);
+        mRecyclerView.setLayoutManager(layoutManager);
+
+        mOnPhotoClickListener = position -> {
+            mViewPager2.setVisibility(View.VISIBLE);
+            mViewPager2.setCurrentItem(position);
+            mViewPager2.setAdapter(new ViewPagerAdapter(getActivity(), albumPhotos, mViewPager2));
+
+        };
+            mAlbumPhotoAdapter.setClickListener(mOnPhotoClickListener);
+    });
+
+}
 
     private void initView(View view) {
         profileImage = view.findViewById(R.id.profile_image);
@@ -92,6 +108,7 @@ public class CurrentUserProfileFragment extends Fragment {
         mCity = view.findViewById(R.id.user_city);
         mCountry = view.findViewById(R.id.user_country);
         mRecyclerView = view.findViewById(R.id.album_recycler);
+        mViewPager2 = view.findViewById(R.id.viewPager2_album_photos);
     }
 
 
