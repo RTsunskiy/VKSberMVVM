@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.vksbermvvm.R;
 import com.example.vksbermvvm.domain.model.model.Profile;
@@ -23,6 +24,8 @@ public class FriendProfileFragment extends Fragment {
     private FriendProfileViewModel mViewModel;
     private AlbumPhotoAdapter mAlbumPhotoAdapter;
     private RecyclerView mRecyclerView;
+    private OnAlbumPhotoClickListener mOnPhotoClickListener;
+    private ViewPager2 mViewPager2;
 
     private static final String ARG_FRIEND_PROFILE = "ARG_FRIEND_PROFILE";
 
@@ -53,6 +56,7 @@ public class FriendProfileFragment extends Fragment {
         ((TextView) view.findViewById(R.id.user_city)).setText(profile.getmCity());
         ((TextView) view.findViewById(R.id.user_country)).setText(profile.getmCountry());
         mRecyclerView = view.findViewById(R.id.album_recycler);
+        mViewPager2 = view.findViewById(R.id.viewPager2_album_photos);
         Picasso.with(getActivity().getApplicationContext())
                 .load(profile.getmProfileImage())
                 .placeholder(R.drawable.ic_launcher_background)
@@ -67,6 +71,13 @@ public class FriendProfileFragment extends Fragment {
                     LinearLayoutManager.HORIZONTAL,
                     false);
             mRecyclerView.setLayoutManager(layoutManager);
+
+            mOnPhotoClickListener = position -> {
+                mViewPager2.setAdapter(new ViewPagerAdapter(getActivity(), albumPhotos, mViewPager2));
+                mViewPager2.setVisibility(View.VISIBLE);
+                mViewPager2.postDelayed(() -> mViewPager2.setCurrentItem(position), 1);
+            };
+            mAlbumPhotoAdapter.setClickListener(mOnPhotoClickListener);
         });
     }
 

@@ -18,7 +18,6 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.vksbermvvm.R;
 import com.example.vksbermvvm.data.CurrentUser;
-import com.example.vksbermvvm.domain.model.model.AlbumPhoto;
 import com.squareup.picasso.Picasso;
 
 
@@ -34,7 +33,6 @@ public class CurrentUserProfileFragment extends Fragment {
     private View mLoadingView;
     private RecyclerView mRecyclerView;
     private AlbumPhotoAdapter mAlbumPhotoAdapter;
-    private ViewPagerAdapter mViewPagerAdapter;
     private ViewPager2 mViewPager2;
     private OnAlbumPhotoClickListener mOnPhotoClickListener;
 
@@ -89,10 +87,9 @@ public class CurrentUserProfileFragment extends Fragment {
         mRecyclerView.setLayoutManager(layoutManager);
 
         mOnPhotoClickListener = position -> {
-            mViewPager2.setVisibility(View.VISIBLE);
-            mViewPager2.setCurrentItem(position);
             mViewPager2.setAdapter(new ViewPagerAdapter(getActivity(), albumPhotos, mViewPager2));
-
+            mViewPager2.setVisibility(View.VISIBLE);
+            mViewPager2.postDelayed(() -> mViewPager2.setCurrentItem(position), 1);
         };
             mAlbumPhotoAdapter.setClickListener(mOnPhotoClickListener);
     });
