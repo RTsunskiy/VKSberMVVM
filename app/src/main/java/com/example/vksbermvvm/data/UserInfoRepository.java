@@ -6,9 +6,12 @@ import com.example.vksbermvvm.data.modelAlbumPhotos.AlbumPhotos;
 import com.example.vksbermvvm.data.modelAlbumPhotos.Size;
 import com.example.vksbermvvm.data.modelFriends.Friends;
 import com.example.vksbermvvm.data.modelFriends.Item;
+import com.example.vksbermvvm.data.modelGroups.Groups;
+import com.example.vksbermvvm.data.modelGroups.ItemGroup;
 import com.example.vksbermvvm.data.modelProfile.ResponseExample;
 import com.example.vksbermvvm.domain.model.IProfileRepository;
 import com.example.vksbermvvm.domain.model.model.AlbumPhoto;
+import com.example.vksbermvvm.domain.model.model.Group;
 import com.example.vksbermvvm.domain.model.model.Profile;
 
 import java.io.IOException;
@@ -28,12 +31,14 @@ public class UserInfoRepository implements IProfileRepository {
     private final String ALBUM_PHOTOS_HIDDEN = "1";
     private final String ALBUM_PHOTOS_COUNT = "200";
     private final String FRIENDS_ORDER = "hints";
+    private final int GROUP_EXTENDED = 1;
 
     private Retrofit mRetrofit;
     private final JSONPlaceHolderApi mProfileApi;
 
     private final List<Profile> friendsList = new ArrayList<>();
     private final List<AlbumPhoto> photosList = new ArrayList<>();
+    private final List<Group> groupList = new ArrayList<>();
 
 
     public UserInfoRepository() {
@@ -135,5 +140,28 @@ public class UserInfoRepository implements IProfileRepository {
                     url));
         }
         return photosList;
+    }
+
+    @NonNull
+    @Override
+    public List<Group> loadGroups() throws IOException {
+        Response<Groups> response = mProfileApi.getGroups(CurrentUser.getAccessToken(),
+                GROUP_EXTENDED,
+                VK_API_VERSION).execute();
+        if (response.body() == null || response.errorBody() != null) {
+            throw new IOException("Не удалось загрузить список групп");
+        }
+        Groups groupObjectInfo = response.body();
+        groupList.clear();
+
+        for (ItemGroup responseGroups : groupObjectInfo.response.items) {
+
+            groupList.add(new Group(responseGroups.id,
+                    responseGroups.name,
+                    responseGroups.screenName,
+                    responseGroups.isClosed,
+                    responseGroups.photo200));
+        }
+        return groupList;
     }
 }

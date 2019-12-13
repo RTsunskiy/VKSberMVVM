@@ -66,8 +66,7 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="@dimen/default_padding"
                 android:text="@string/user_name"
-                android:elevation="5dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                android:elevation="5dp" />
 
             <TextView
                 android:id="@+id/first_name_tv"
@@ -75,7 +74,8 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size"
                 android:padding="@dimen/default_padding"
-                tools:text="Иван" />
+                tools:text="Иван"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
             <View
                 android:layout_width="match_parent"
@@ -87,8 +87,7 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="@dimen/default_padding"
                 android:paddingEnd="@dimen/default_padding"
-                android:text="@string/user_last_name"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                android:text="@string/user_last_name" />
 
             <TextView
                 android:id="@+id/last_name_tv"
@@ -96,6 +95,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size"
                 android:padding="@dimen/default_padding"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 tools:text="Иванов" />
 
             <View
@@ -108,8 +108,7 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="@dimen/default_padding"
                 android:paddingEnd="@dimen/default_padding"
-                android:text="Дата рождения"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                android:text="Дата рождения" />
 
             <TextView
                 android:id="@+id/user_bDate"
@@ -117,6 +116,7 @@
                 android:textSize="@dimen/text_size"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/default_padding"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 tools:text="29.10.2019" />
 
             <View
@@ -129,8 +129,7 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="@dimen/default_padding"
                 android:paddingEnd="@dimen/default_padding"
-                android:text="Город"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                android:text="Город" />
 
             <TextView
                 android:id="@+id/user_city"
@@ -138,6 +137,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size"
                 android:padding="@dimen/default_padding"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 tools:text="Майкоп" />
 
             <View
@@ -150,8 +150,7 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="@dimen/default_padding"
                 android:paddingEnd="@dimen/default_padding"
-                android:text="Страна"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                android:text="Страна" />
 
             <TextView
                 android:id="@+id/user_country"
@@ -159,6 +158,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size"
                 android:padding="@dimen/default_padding"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 tools:text="Россия" />
 
             <View

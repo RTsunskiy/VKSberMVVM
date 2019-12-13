@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/default_margin"
+    android:layout_marginTop="@dimen/default_margin"
+    android:layout_marginEnd="@dimen/default_margin"
+    android:layout_marginBottom="@dimen/default_margin"
+    android:background="@color/vk_white"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp">
+
+    <RelativeLayout
+        android:id="@+id/root_constraint"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/vk_light_color">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/group_photo"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:padding="@dimen/default_padding"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background" />
+
+
+        <TextView
+            android:id="@+id/group_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/group_photo"
+            android:padding="@dimen/default_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            tools:text="Text" />
+
+
+        <TextView
+            android:id="@+id/group_screen_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/group_name"
+            android:padding="@dimen/default_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            tools:text="Text" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/closed_indicator"
+            android:layout_width="10dp"
+            android:layout_margin="@dimen/default_margin"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:scaleType="centerCrop"
+            android:layout_height="10dp" />
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

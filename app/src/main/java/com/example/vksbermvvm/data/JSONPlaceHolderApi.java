@@ -2,7 +2,9 @@ package com.example.vksbermvvm.data;
 
 import com.example.vksbermvvm.data.modelAlbumPhotos.AlbumPhotos;
 import com.example.vksbermvvm.data.modelFriends.Friends;
+import com.example.vksbermvvm.data.modelGroups.Groups;
 import com.example.vksbermvvm.data.modelProfile.ResponseExample;
+
 
 
 import retrofit2.Call;
@@ -28,4 +30,9 @@ public interface JSONPlaceHolderApi {
                                      @Query("skip_hidden") String skipHidden,
                                      @Query("count") String photoCount,
                                      @Query("v") String v);
+
+    @GET("groups.get")
+    Call<Groups> getGroups (@Query("access_token") String token,
+                           @Query("extended") int extended,
+                           @Query("v") String v);
 }

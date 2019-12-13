@@ -4,6 +4,7 @@
     <string name="error_loading_profile">Ошибка при загрузке профиля</string>
     <string name="error_loading_album">Ошибка при загрузке альбома</string>
     <string name="error_loading_friends">Ошибка при загрузке списка друзей</string>
+    <string name="error_loading_groups">Ошибка при загрузке списка групп</string>
     <string name="user_name">Имя</string>
     <string name="user_last_name">Фамилия</string>
     <string name="string_my_profile">Мой профиль</string>

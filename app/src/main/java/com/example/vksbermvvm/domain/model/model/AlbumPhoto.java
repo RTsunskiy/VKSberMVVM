@@ -15,8 +15,8 @@ public class AlbumPhoto {
         this.mUrl = mUrl;
     }
 
-    private final int mId;
-    private final int mAlbumId;
+    private int mId;
+    private int mAlbumId;
 
     private final String mType;
 

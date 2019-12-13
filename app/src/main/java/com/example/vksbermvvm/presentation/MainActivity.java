@@ -2,6 +2,7 @@ package com.example.vksbermvvm.presentation;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Build;
@@ -24,7 +25,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        checkAuth();
+        if(savedInstanceState==null){
+           checkAuth();
+        }
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
@@ -48,6 +51,12 @@ public class MainActivity extends AppCompatActivity {
                                     .commit();
                             break;
                         case R.id.action_my_groups:
+                            menuItem.setChecked(true);
+                            getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.root_layout, GroupsListFragment.newInstance())
+                                    .addToBackStack(null)
+                                    .commit();
                             break;
                     }
                     return false;
