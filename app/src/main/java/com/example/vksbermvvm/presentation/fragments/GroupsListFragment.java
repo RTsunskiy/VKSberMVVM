@@ -18,6 +18,9 @@ import com.example.vksbermvvm.presentation.adapters.GroupsListAdapter;
 import com.example.vksbermvvm.presentation.viewModelFactories.GroupsListViewModelFactory;
 import com.example.vksbermvvm.presentation.viewModels.GroupsListViewModel;
 
+/**
+ * Фрагмент, реализующий логику отображения списка групп, на которые полдписан пользователь
+ */
 public class GroupsListFragment extends Fragment {
 
     private RecyclerView mGroupsRecycler;

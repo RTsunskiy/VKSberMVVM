@@ -6,7 +6,9 @@ import com.vk.sdk.VKSdk;
 
 public class MyApplication extends Application {
 
-
+    /**
+     * Инициализация VKSdk
+     */
     @Override
     public void onCreate() {
         super.onCreate();

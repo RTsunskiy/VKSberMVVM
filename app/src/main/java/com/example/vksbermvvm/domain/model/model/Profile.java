@@ -8,12 +8,22 @@ import androidx.annotation.NonNull;
 
 import java.util.Objects;
 
+/**
+ * POJO объект, в котором хранится информация о профиле пользователя
+ */
+
 public class Profile implements Parcelable {
+    /**имя владельца профиля*/
     private final String mFirstName;
+    /**фамилия владельца профиля*/
     private final String mLastName;
+    /**дата рождения владельца профиля*/
     private final String mDate;
+    /**город, в котором проживает владелец профиля*/
     private final String mCity;
+    /**страна, в которой проживает владелец профиля*/
     private final String mCountry;
+    /**id профиля*/
     private final int mId;
 
 

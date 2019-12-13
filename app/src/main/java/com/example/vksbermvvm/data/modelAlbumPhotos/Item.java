@@ -4,6 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+/**
+ * Класс с данными об одном элементе коллекции фотографии альбома профиля
+ */
+
 public class Item {
 
     @SerializedName("id")

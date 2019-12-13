@@ -2,6 +2,10 @@ package com.example.vksbermvvm.data.modelFriends;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Класс, в котором содержится подробная информация о друге пользователя
+ */
+
 public class Item {
 
     @SerializedName("id")

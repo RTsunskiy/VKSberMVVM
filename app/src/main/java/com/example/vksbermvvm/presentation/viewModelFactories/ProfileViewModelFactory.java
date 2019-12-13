@@ -15,6 +15,9 @@ import com.example.vksbermvvm.presentation.viewModels.ProfileUserViewModel;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+/**
+ * Фабрика вьюмоделей профиля текущего пользователя
+ */
 public class ProfileViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 
     private final Context mApplicationContext;

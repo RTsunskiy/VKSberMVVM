@@ -2,6 +2,10 @@ package com.example.vksbermvvm.data.modelProfile;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Класс, в котором содержится детальная информация о профиле пользователя, полученная от сервера ВКонтакте
+ */
+
 public class Response {
 
     @SerializedName("id")

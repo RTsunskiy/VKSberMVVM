@@ -22,11 +22,18 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+/**
+ * Адаптер списка друзей пользователя унаследованный от интерфейса Filterable
+ * для осуществления поиска друга в списке
+ */
 public class FriendsListAdapter extends RecyclerView.Adapter<FriendsListAdapter.FriendHolder> implements Filterable {
 
     private Context mContext;
+    /**Список профилей друзей пользователя, которые необходимо отобразить*/
     private List<Profile> mFriendsList;
+    /**Слушатель нажатий на элемент списка*/
     private OnFriendClickListener mClickListener;
+    /**Список профилей друзей, используемый при фильтрации списка (SearchView)*/
     private List<Profile> mFriendsListFull;
 
     public FriendsListAdapter(Context context, List<Profile> friendsList) {
@@ -34,6 +41,7 @@ public class FriendsListAdapter extends RecyclerView.Adapter<FriendsListAdapter.
         mFriendsList = new ArrayList<>(friendsList);
         mFriendsListFull = new ArrayList<>(mFriendsList);
     }
+
 
     public void setClickListener(@Nullable OnFriendClickListener clickListener) {
         mClickListener = clickListener;
@@ -85,11 +93,18 @@ public class FriendsListAdapter extends RecyclerView.Adapter<FriendsListAdapter.
 
     }
 
+    /**
+     * Метод для получения отфильтрованного списка друзей
+     * @return возвращает объект класса Filter
+     */
     @Override
     public Filter getFilter() {
         return friendFilter;
     }
 
+    /**
+     * Реализация класса, осуществляющего фильтрацию списка друзей и наполнение коллекции с отфильтрованным списком
+     */
     private Filter friendFilter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
@@ -113,6 +128,9 @@ public class FriendsListAdapter extends RecyclerView.Adapter<FriendsListAdapter.
             return results;
         }
 
+        /**
+         * Метод для публикации результатов фильтрации
+         */
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
             mFriendsList.clear();

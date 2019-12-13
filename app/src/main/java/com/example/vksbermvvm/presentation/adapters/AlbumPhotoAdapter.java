@@ -18,11 +18,15 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Адаптер RecyclerView, отображающий фотографии из альбомов профилей
+ */
 public class AlbumPhotoAdapter extends RecyclerView.Adapter<AlbumPhotoAdapter.AlbumHolder> {
 
     private Context mContext;
+    /**Коллекция фотографий пользователя, которую необходимо отобразить*/
     private List<AlbumPhoto> mPhotosList;
+    /**Слушатель нажатий на элементы списка*/
     private OnAlbumPhotoClickListener mClickListener;
 
     public AlbumPhotoAdapter(Context context, List<AlbumPhoto> photosList) {
@@ -51,6 +55,7 @@ public class AlbumPhotoAdapter extends RecyclerView.Adapter<AlbumPhotoAdapter.Al
                 .error(R.drawable.vk_gray_transparent_shape)
                 .into(holder.albumPhoto);
 
+        /**обработка нажатия на элемент списка и передача позиции элемента, на который нажали*/
         holder.itemView.setOnClickListener(v -> {
             if (mClickListener != null) {
                 mClickListener.onItemClick(position);

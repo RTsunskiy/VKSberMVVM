@@ -15,6 +15,9 @@ import com.example.vksbermvvm.presentation.utils.IResourceWrapper;
 import java.util.List;
 import java.util.concurrent.Executor;
 
+/**
+ * Вью модель профиля друга
+ */
 public class FriendProfileViewModel extends ViewModel {
     private final Executor mExecutor;
     private final ProfileInfoInteractor mProfileInfoInteractor;
@@ -31,6 +34,10 @@ public class FriendProfileViewModel extends ViewModel {
     }
 
 
+    /**
+     * Загружает список фотографий из альбомов друга
+     * @param userId идентификатор профиля, для которого необходимо осуществить загрузку фотографий
+     */
     public void loadAlbumPhoto(String userId) {
         mExecutor.execute(() -> {
             try {
@@ -42,11 +49,19 @@ public class FriendProfileViewModel extends ViewModel {
         });
     }
 
+    /**
+     * LiveData со списком фотографий
+     * @return возвращает LiveData
+     */
     @NonNull
     public LiveData<List<AlbumPhoto>> getAlbum() {
         return mAlbumPhoto;
     }
 
+    /**
+     * LiveData с ошибками при загрузке
+     * @return возвращает LiveData
+     */
     @NonNull
     LiveData<String> getErrors() {
         return mErrors;

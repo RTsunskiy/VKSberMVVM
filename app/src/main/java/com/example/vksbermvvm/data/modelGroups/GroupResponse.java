@@ -4,6 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+/**
+ * Класс, в котором содержится общая информация о группах пользователя, полученная в резултате запроса к серверу ВКонтакте
+ */
+
 public class GroupResponse {
 
     @SerializedName("count")

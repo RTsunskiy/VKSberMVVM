@@ -16,6 +16,9 @@ import com.example.vksbermvvm.presentation.utils.IResourceWrapper;
 import java.util.List;
 import java.util.concurrent.Executor;
 
+/**
+ * Вью модель со списком друзей пользователя
+ */
 public class FriendsListViewModel extends ViewModel {
     private final Executor mExecutor;
     private final ProfileInfoInteractor mProfileInfoInteractor;
@@ -32,6 +35,9 @@ public class FriendsListViewModel extends ViewModel {
         mResourceWrapper = resourceWrapper;
     }
 
+    /**
+     * Загружает список друзей пользователя
+     */
     public void loadFriendsList() {
         mIsLoading.setValue(true);
         mExecutor.execute(() -> {
@@ -45,16 +51,28 @@ public class FriendsListViewModel extends ViewModel {
         });
     }
 
+    /**
+     * LiveData со списком профилей друзей
+     * @return возвращает LiveData
+     */
     @NonNull
     public LiveData<List<Profile>> getFriendsList() {
         return mFriendsList;
     }
 
+    /**
+     * Завершена ли загрузка
+     * @return возвращает LiveData
+     */
     @NonNull
     public LiveData<Boolean> isLoading() {
         return mIsLoading;
     }
 
+    /**
+     * Есть ли ошибки при загрузке
+     * @return возвращает LiveData
+     */
     @NonNull
     public LiveData<String> getErrors() {
         return mErrors;

@@ -15,6 +15,9 @@ import com.example.vksbermvvm.presentation.viewModels.FriendProfileViewModel;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+/**
+ * Фабрика вьюмоделей профиля друга
+ */
 public class FriendProfileViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 
     private final Context mApplicationContext;

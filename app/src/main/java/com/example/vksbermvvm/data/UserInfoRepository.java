@@ -22,7 +22,13 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * Класс, в котором осуществляются все запросы к серверу ВКонтакте.
+ */
 public class UserInfoRepository implements IProfileRepository {
+    /**
+     * Список констант с параметрами для осуществления запросов к серверу ВКонтакте
+     */
     private static final String BASE_URL = "https://api.vk.com/method/";
     private final String VK_API_VERSION = "5.103";
     private final String PROFILE_FIELDS = "bdate,home_town,country,photo_400_orig";
@@ -35,12 +41,14 @@ public class UserInfoRepository implements IProfileRepository {
 
     private Retrofit mRetrofit;
     private final JSONPlaceHolderApi mProfileApi;
-
     private final List<Profile> friendsList = new ArrayList<>();
     private final List<AlbumPhoto> photosList = new ArrayList<>();
     private final List<Group> groupList = new ArrayList<>();
 
 
+    /**
+     * Метод по созданию билдера библиотеки Retrofit
+     */
     public UserInfoRepository() {
         mRetrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -51,6 +59,11 @@ public class UserInfoRepository implements IProfileRepository {
     }
 
 
+    /**
+     * Метод по загрузке информации о профиле пользователя
+     * @return возвращает объект pojo класса Profile
+     * @throws IOException исключение, выбрасываемое, если от сервера пришла ошибка
+     */
     @NonNull
     @Override
     public Profile loadProfileInfo() throws IOException {
@@ -70,6 +83,11 @@ public class UserInfoRepository implements IProfileRepository {
                 profileObjectInfo.response.get(0).id);
     }
 
+    /**
+     * Метод по загрузке списка друзей пользователя и детальной информации о профилях друзей
+     * @return возвращает коллекцию объектов pojo Profile (информация о профилях друзей пользователя)
+     * @throws IOException исключение, выбрасываемое, если от сервера пришла ошибка
+     */
     @NonNull
     @Override
     public List<Profile> loadFriendsList() throws IOException {
@@ -107,6 +125,12 @@ public class UserInfoRepository implements IProfileRepository {
         return friendsList;
     }
 
+    /**
+     * Метод по загрузке списка фотографий профиля
+     * @param userId Id пользователя, фотографии которого необходимо получить
+     * @return возвращает коллекцию объектов pojo AlbumPhoto
+     * @throws IOException исключение, выбрасываемое, если от сервера пришла ошибка
+     */
     @NonNull
     @Override
     public List<AlbumPhoto> loadAlbumPhotos(String userId) throws IOException {
@@ -142,6 +166,11 @@ public class UserInfoRepository implements IProfileRepository {
         return photosList;
     }
 
+    /**
+     * Метод для получения списка групп, на которые подписан пользователь
+     * @return возвращает коллекцию pojo объектов Group
+     * @throws IOException исключение, выбрасываемое, если не получен ответ от сервера пришла ошибка
+     */
     @NonNull
     @Override
     public List<Group> loadGroups() throws IOException {

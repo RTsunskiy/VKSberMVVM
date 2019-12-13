@@ -1,11 +1,19 @@
 package com.example.vksbermvvm.domain.model.model;
 
-public class Group {
+/**
+ * POJO объект, в котором хранится информация о группе, на которую подписан пользователь
+ */
 
+public class Group {
+    /**Id группы*/
     private int mId;
+    /**название группы*/
     private String mName;
+    /**техническое название группы*/
     private String mScreenName;
+    /**признак, что группа закрыта*/
     private int mIsClosed;
+    /**url фотографии группы*/
     private String mPhoto;
 
     public Group(int mId, String mName, String mScreenName, int mIsClosed, String mPhoto) {

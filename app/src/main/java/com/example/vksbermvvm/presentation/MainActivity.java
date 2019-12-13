@@ -17,6 +17,9 @@ import com.vk.sdk.VKCallback;
 import com.vk.sdk.VKSdk;
 import com.vk.sdk.api.VKError;
 
+/**
+ * Главное и единственное Activity
+ */
 public class MainActivity extends AppCompatActivity {
 
 
@@ -30,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
+        /**
+         * Обработка нажатий на элементы ToolBar menu и открытие соответствующих фрагментов
+         */
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 menuItem -> {
                     switch (menuItem.getItemId()) {
@@ -63,6 +69,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Проверка авторизован ли пользователь
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (!VKSdk.onActivityResult(requestCode, resultCode, data, new VKCallback<VKAccessToken>() {
@@ -82,11 +91,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Авторизация пользователя
+     */
     public void startSignIn() {
 
         VKSdk.login(this, ApiConsatants.DEFAULT_LOGIN_SCOPE);
     }
 
+    /**
+     * Если пользователь авторизован, то открывается фрагмент
+     */
     public void signedIn() {
         getSupportFragmentManager()
                 .beginTransaction()
@@ -96,6 +111,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Проверка авторизован ли пользователь
+     */
     public void checkAuth() {
         if (!CurrentUser.isAuthorized()) {
             startSignIn();

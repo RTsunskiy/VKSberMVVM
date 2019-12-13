@@ -4,6 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+/**
+ * Класс, содержашщий общую информацию об альбоме профиля
+ */
+
 public class Response {
 
     @SerializedName("count")

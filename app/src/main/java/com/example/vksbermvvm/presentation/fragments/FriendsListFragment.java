@@ -24,12 +24,16 @@ import com.example.vksbermvvm.presentation.adapters.FriendsListAdapter;
 import com.example.vksbermvvm.presentation.viewModelFactories.FriendsListViewModelFactory;
 import com.example.vksbermvvm.presentation.viewModels.FriendsListViewModel;
 
+/**
+ * Фрагмент со списком друзей пользователя
+ */
 public class FriendsListFragment extends Fragment {
 
     private RecyclerView mFriendsRecycler;
     private FriendsListViewModel mFriendsListViewModel;
     private View mLoadingView;
     private FriendsListAdapter mFriendsListAdapter;
+    /**Обработка нажатия на элемент списка. В результате нажатия фрагмент должен заменяться на FriendProfileFragment*/
     private OnFriendClickListener mOnFriendClickListener = (profile) -> requireActivity()
             .getSupportFragmentManager()
             .beginTransaction()
@@ -62,6 +66,9 @@ public class FriendsListFragment extends Fragment {
 
     }
 
+    /**
+     * В данном методе осуществляется подписка на LiveData и загрузка данных с сервера
+     */
     private void setupMvvm() {
         mFriendsListViewModel = ViewModelProviders.of(this, new FriendsListViewModelFactory(getActivity()))
                 .get(FriendsListViewModel.class);
@@ -77,6 +84,11 @@ public class FriendsListFragment extends Fragment {
         mFriendsListViewModel.loadFriendsList();
     }
 
+    /**
+     * Переопределенный метод для реализации ToolBar menu. Используется для реализации SearchView.
+     * @param menu
+     * @param inflater
+     */
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.menu_toolbar, menu);

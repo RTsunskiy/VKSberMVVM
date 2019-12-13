@@ -2,6 +2,10 @@ package com.example.vksbermvvm.data.modelGroups;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Класс, в котором содержится детальная информация о группе, на которую подписан пользователь
+ */
+
 public class ItemGroup {
 
     @SerializedName("id")

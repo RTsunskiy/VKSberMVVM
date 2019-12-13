@@ -15,6 +15,9 @@ import com.example.vksbermvvm.presentation.viewModels.GroupsListViewModel;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+/**
+ * Фабрика вьюмоделей групп, на которые подписан пользователь
+ */
 public class GroupsListViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 
     private final Context mApplicationContext;

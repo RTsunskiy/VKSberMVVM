@@ -3,7 +3,19 @@ package com.example.vksbermvvm.domain.model.model;
 
 import androidx.annotation.NonNull;
 
+/**
+ * POJO объект, в котором хранится информация о фотографии из альбома пользователя
+ */
+
 public class AlbumPhoto {
+    /**url фотографии*/
+    private final String mUrl;
+    /**id фотографии*/
+    private int mId;
+    /**id альбома, в котором хранится фотография*/
+    private int mAlbumId;
+    /**тип фотографии (тип влияет на разрешение фотографии)*/
+    private final String mType;
 
     public AlbumPhoto(@NonNull int mId,
                       @NonNull int mAlbumId,
@@ -15,10 +27,6 @@ public class AlbumPhoto {
         this.mUrl = mUrl;
     }
 
-    private int mId;
-    private int mAlbumId;
-
-    private final String mType;
 
     @Override
     public String toString() {
@@ -67,6 +75,4 @@ public class AlbumPhoto {
     public String getmUrl() {
         return mUrl;
     }
-
-    private final String mUrl;
 }

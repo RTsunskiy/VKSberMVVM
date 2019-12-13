@@ -15,6 +15,9 @@ import com.example.vksbermvvm.presentation.utils.IResourceWrapper;
 import java.util.List;
 import java.util.concurrent.Executor;
 
+/**
+ * Вью модель списка групп пользователя
+ */
 public class GroupsListViewModel extends ViewModel {
     private final Executor mExecutor;
     private final ProfileInfoInteractor mProfileInfoInteractor;
@@ -31,6 +34,9 @@ public class GroupsListViewModel extends ViewModel {
         mResourceWrapper = resourceWrapper;
     }
 
+    /**
+     * Возвращает список групп, на которые подписан пользователь
+     */
     public void loadGroupList() {
         mIsLoading.setValue(true);
         mExecutor.execute(() -> {
@@ -44,16 +50,28 @@ public class GroupsListViewModel extends ViewModel {
         });
     }
 
+    /**
+     * LiveData со списком групп, на которые подписан пользователь
+     * @return возвращает список групп
+     */
     @NonNull
     public LiveData<List<Group>> getGroupList() {
         return mGroupList;
     }
 
+    /**
+     * Завершена ли загрузка
+     * @return возвращает LiveTada
+     */
     @NonNull
     public LiveData<Boolean> isLoading() {
         return mIsLoading;
     }
 
+    /**
+     * Были ли ошиьки при загрузке
+     * @return возвращает LiveData
+     */
     @NonNull
     public LiveData<String> getErrors() {
         return mErrors;

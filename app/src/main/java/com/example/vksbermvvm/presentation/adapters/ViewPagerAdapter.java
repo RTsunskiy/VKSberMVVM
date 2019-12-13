@@ -15,6 +15,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+/**
+ * Адаптер для ViewPager2, полностью аналогичен адаптеру для RecyclerView
+ */
 public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.AlbumPhotoHolder> {
 
     private List<AlbumPhoto> mAlbumPhotoList;

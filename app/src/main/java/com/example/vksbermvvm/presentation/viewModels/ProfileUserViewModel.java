@@ -18,6 +18,9 @@ import com.example.vksbermvvm.presentation.utils.IResourceWrapper;
 import java.util.List;
 import java.util.concurrent.Executor;
 
+/**
+ * Вью модель профиля пользователя
+ */
 public class ProfileUserViewModel extends ViewModel {
     private final Executor mExecutor;
     private final ProfileInfoInteractor mProfileInfoInteractor;
@@ -35,6 +38,9 @@ public class ProfileUserViewModel extends ViewModel {
         mResourceWrapper = resourceWrapper;
     }
 
+    /**
+     * Метод для получения информации о профиле
+     */
     public void loadProfile() {
         mIsLoading.setValue(true);
         mExecutor.execute(() -> {
@@ -49,6 +55,10 @@ public class ProfileUserViewModel extends ViewModel {
     }
 
 
+    /**
+     * Метод для получения списка фотографий профиля
+     * @param userId идентификатор пользователя, фотографии которого необходимо получить
+     */
     public void loadAlbumPhoto(String userId) {
         mExecutor.execute(() -> {
             try {
@@ -61,21 +71,37 @@ public class ProfileUserViewModel extends ViewModel {
         });
     }
 
+    /**
+     * LiveData с профилем
+     * @return возвращает LiveData
+     */
     @NonNull
     public LiveData<Profile> getProfile() {
         return mProfile;
     }
 
+    /**
+     * LiveData со списоком фотографий пользователя
+     * @return возвращает LiveData
+     */
     @NonNull
     public LiveData<List<AlbumPhoto>> getAlbum() {
         return mAlbumPhoto;
     }
 
+    /**
+     * Завершена ли загрузка
+     * @return возвращает LiveData
+     */
     @NonNull
     public LiveData<Boolean> isLoading() {
         return mIsLoading;
     }
 
+    /**
+     * Были ли ошибки при загрузке
+     * @return возвращает LiveData
+     */
     @NonNull
     public LiveData<String> getErrors() {
         return mErrors;

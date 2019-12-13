@@ -4,6 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+/**
+ * Класс, содержащий коллекцию элементов с информацией о профиле пользователя
+ */
+
 public class ResponseExample {
 
     @SerializedName("response")

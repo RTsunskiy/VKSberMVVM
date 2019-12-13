@@ -24,6 +24,9 @@ import com.example.vksbermvvm.presentation.viewModelFactories.FriendProfileViewM
 import com.example.vksbermvvm.presentation.viewModels.FriendProfileViewModel;
 import com.squareup.picasso.Picasso;
 
+/**
+ * Фрагмент для отображения профиля друга
+ */
 public class FriendProfileFragment extends Fragment {
 
     private FriendProfileViewModel mViewModel;
@@ -54,6 +57,10 @@ public class FriendProfileFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_current_user_profile, container, false);
     }
 
+    /**
+     * В данном методе осуществляется подписка на LiveData и вызов методов
+     * для получения данных от сервера.
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -82,6 +89,9 @@ public class FriendProfileFragment extends Fragment {
                     false);
             mRecyclerView.setLayoutManager(layoutManager);
 
+            /**
+             * Обработка нажатия на фотографию в альбоме пользователя
+             */
             mOnPhotoClickListener = position -> {
                 mViewPager2.setAdapter(new ViewPagerAdapter(getActivity(), albumPhotos));
                 mViewPager2.setVisibility(View.VISIBLE);

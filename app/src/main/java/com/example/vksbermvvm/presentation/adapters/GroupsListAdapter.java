@@ -18,6 +18,9 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+/**
+ * Адаптер списка групп, на которые подписан пользователь
+ */
 public class GroupsListAdapter extends RecyclerView.Adapter<GroupsListAdapter.GroupHolder> {
 
     private Context mContext;

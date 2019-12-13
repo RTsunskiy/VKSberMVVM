@@ -25,7 +25,9 @@ import com.example.vksbermvvm.presentation.viewModelFactories.ProfileViewModelFa
 import com.example.vksbermvvm.presentation.viewModels.ProfileUserViewModel;
 import com.squareup.picasso.Picasso;
 
-
+/**
+ * Фрагмент, реализующий логику отображения профиля текущего пользователя
+ */
 public class CurrentUserProfileFragment extends Fragment {
 
     private ImageView profileImage;
@@ -52,6 +54,7 @@ public class CurrentUserProfileFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /**метод для автоматического сохранения состояния фрагмента при уничтожении Activity*/
         setRetainInstance(true);
     }
 
@@ -59,12 +62,21 @@ public class CurrentUserProfileFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_current_user_profile, container, false);
-        initView(view);
-        setupMvvm();
         return view;
 
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        initView(view);
+        setupMvvm();
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    /**
+     * Метод для получения данны от сервера. В данном методе осуществляется подписка на LiveData и вызов методов
+     * для получения данных от сервера.
+     */
     private void setupMvvm() {
         mViewModel = ViewModelProviders.of(this, new ProfileViewModelFactory(getActivity()))
                 .get(ProfileUserViewModel.class);
@@ -98,6 +110,9 @@ public class CurrentUserProfileFragment extends Fragment {
                 false);
         mRecyclerView.setLayoutManager(layoutManager);
 
+            /**
+             * Обработка нажатия на фотографию в альбоме пользователя
+             */
         mOnPhotoClickListener = position -> {
             mViewPager2.setAdapter(new ViewPagerAdapter(getActivity(), albumPhotos));
             mViewPager2.setUserInputEnabled(true);
