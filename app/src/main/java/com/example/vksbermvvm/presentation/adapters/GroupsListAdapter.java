@@ -40,7 +40,7 @@ public class GroupsListAdapter extends RecyclerView.Adapter<GroupsListAdapter.Gr
     }
 
     @Override
-    public void onBindViewHolder(@NonNull  GroupsListAdapter.GroupHolder holder, int position) {
+    public void onBindViewHolder(@NonNull GroupsListAdapter.GroupHolder holder, int position) {
         Group group = mGroupList.get(position);
         holder.mGroupName.setText(group.getmName());
         holder.mGroupScreenName.setText(group.getmScreenName());
@@ -52,8 +52,8 @@ public class GroupsListAdapter extends RecyclerView.Adapter<GroupsListAdapter.Gr
 
         if (group.getmIsClosed() == 0) {
             holder.mIsClosedIndicator.setBackground(mContext.getResources().getDrawable(R.drawable.ic_iconfinder_icon_open));
-        }
-        else holder.mIsClosedIndicator.setBackground(mContext.getResources().getDrawable(R.drawable.ic_iconfinder_close));
+        } else
+            holder.mIsClosedIndicator.setBackground(mContext.getResources().getDrawable(R.drawable.ic_iconfinder_close));
     }
 
     @Override

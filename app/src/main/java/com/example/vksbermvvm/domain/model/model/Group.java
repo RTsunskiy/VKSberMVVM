@@ -5,15 +5,25 @@ package com.example.vksbermvvm.domain.model.model;
  */
 
 public class Group {
-    /**Id группы*/
+    /**
+     * Id группы
+     */
     private int mId;
-    /**название группы*/
+    /**
+     * название группы
+     */
     private String mName;
-    /**техническое название группы*/
+    /**
+     * техническое название группы
+     */
     private String mScreenName;
-    /**признак, что группа закрыта*/
+    /**
+     * признак, что группа закрыта
+     */
     private int mIsClosed;
-    /**url фотографии группы*/
+    /**
+     * url фотографии группы
+     */
     private String mPhoto;
 
     public Group(int mId, String mName, String mScreenName, int mIsClosed, String mPhoto) {

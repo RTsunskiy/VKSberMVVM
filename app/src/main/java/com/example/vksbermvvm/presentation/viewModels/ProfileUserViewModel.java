@@ -57,6 +57,7 @@ public class ProfileUserViewModel extends ViewModel {
 
     /**
      * Метод для получения списка фотографий профиля
+     *
      * @param userId идентификатор пользователя, фотографии которого необходимо получить
      */
     public void loadAlbumPhoto(String userId) {
@@ -73,6 +74,7 @@ public class ProfileUserViewModel extends ViewModel {
 
     /**
      * LiveData с профилем
+     *
      * @return возвращает LiveData
      */
     @NonNull
@@ -82,6 +84,7 @@ public class ProfileUserViewModel extends ViewModel {
 
     /**
      * LiveData со списоком фотографий пользователя
+     *
      * @return возвращает LiveData
      */
     @NonNull
@@ -91,6 +94,7 @@ public class ProfileUserViewModel extends ViewModel {
 
     /**
      * Завершена ли загрузка
+     *
      * @return возвращает LiveData
      */
     @NonNull
@@ -100,6 +104,7 @@ public class ProfileUserViewModel extends ViewModel {
 
     /**
      * Были ли ошибки при загрузке
+     *
      * @return возвращает LiveData
      */
     @NonNull

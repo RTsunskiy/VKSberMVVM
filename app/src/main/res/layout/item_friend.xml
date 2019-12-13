@@ -1,57 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/vk_white"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="75dp"
-    android:layout_marginTop="@dimen/default_margin"
-    android:layout_marginBottom="@dimen/default_margin"
+    android:layout_height="@dimen/card_view_height"
     android:layout_marginStart="@dimen/default_margin"
+    android:layout_marginTop="@dimen/default_margin"
     android:layout_marginEnd="@dimen/default_margin"
-    app:cardCornerRadius="5dp"
-    app:cardElevation="5dp">
+    android:layout_marginBottom="@dimen/default_margin"
+    android:background="@color/vk_white"
+    app:cardCornerRadius="@dimen/item_friend_corner_radius"
+    app:cardElevation="@dimen/item_elevation">
 
-<RelativeLayout
-    android:id="@+id/root_constraint"
-    android:background="@color/vk_light_color"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/root_constraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/vk_light_color">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:padding="@dimen/default_padding"
-        android:scaleType="centerCrop"
-        android:id="@+id/friends_photo"
-        android:src="@drawable/ic_launcher_background" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/friends_photo"
-        android:id="@+id/friend_name"
-        android:padding="@dimen/default_padding"
-        tools:text="Text"
-        android:layout_centerVertical="true"
-        android:textSize="15sp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/friends_photo"
+            android:layout_width="@dimen/item_image_width"
+            android:layout_height="@dimen/item_image_height"
+            android:padding="@dimen/default_padding"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background" />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/friend_name"
-        android:id="@+id/friend_surname"
-        android:padding="@dimen/default_padding"
-        tools:text="Text"
-        android:layout_centerVertical="true"
-        android:textSize="15sp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+        <TextView
+            android:id="@+id/friend_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/friends_photo"
+            android:padding="@dimen/default_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textSize="@dimen/main_text_size"
+            tools:text="Text" />
 
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/friend_surname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/friend_name"
+            android:padding="@dimen/default_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textSize="@dimen/main_text_size"
+            tools:text="Text" />
+
+
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>

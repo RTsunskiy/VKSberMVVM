@@ -18,6 +18,7 @@ public class ProfileInfoInteractor {
 
     /**
      * Конструктор класса
+     *
      * @param profileRepository в качестве параметра необходимо передавать класс-наследник
      *                          интерфейса IProfileRepository
      */
@@ -28,9 +29,10 @@ public class ProfileInfoInteractor {
 
     /**
      * Метод для получения информации о профиле пользователя
+     *
      * @return возвращает объект класса Profile
      * @throws LoadProfileException собственное исключение, выбрасываемое,
-     * если не удалось получить данные о профиле с сервера
+     *                              если не удалось получить данные о профиле с сервера
      */
     public Profile loadProfileInfo() throws LoadProfileException {
         try {
@@ -42,9 +44,10 @@ public class ProfileInfoInteractor {
 
     /**
      * Метод для получения списка друзей пользователя
+     *
      * @return возвращает коллекцию профилей друзей пользователя
      * @throws LoadFriendsException собственное исключение, выбрасываемое,
-     * если не удалось получить список друзей пользователя
+     *                              если не удалось получить список друзей пользователя
      */
     public List<Profile> loadFriendsList() throws LoadFriendsException {
         try {
@@ -56,10 +59,11 @@ public class ProfileInfoInteractor {
 
     /**
      * Метод для получения фотографий из альбомов пользователей
+     *
      * @param userId параметр, необходимый для указания id пользователя, фотографии которого необходимо получить
      * @return возвращает коллекцию фотографий пользователя
      * @throws LoadAlbumPhotosException собственное исключение, выбрасываемое,
-     * если не удалось получить список фотографий
+     *                                  если не удалось получить список фотографий
      */
     public List<AlbumPhoto> loadAlbumPhotos(String userId) throws LoadAlbumPhotosException {
         try {
@@ -71,9 +75,10 @@ public class ProfileInfoInteractor {
 
     /**
      * Метод для получения списка групп, на которые подписан пользователь
+     *
      * @return возвращает список групп, на которые подписан пользователь
      * @throws LoadGroupsExceprtion собственное исключение, выбрасываемое,
-     * если не удалось получить список групп, на которые подписан пользователь
+     *                              если не удалось получить список групп, на которые подписан пользователь
      */
     public List<Group> loadGroups() throws LoadGroupsExceprtion {
         try {

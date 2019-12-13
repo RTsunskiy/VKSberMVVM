@@ -52,6 +52,7 @@ public class GroupsListViewModel extends ViewModel {
 
     /**
      * LiveData со списком групп, на которые подписан пользователь
+     *
      * @return возвращает список групп
      */
     @NonNull
@@ -61,6 +62,7 @@ public class GroupsListViewModel extends ViewModel {
 
     /**
      * Завершена ли загрузка
+     *
      * @return возвращает LiveTada
      */
     @NonNull
@@ -70,6 +72,7 @@ public class GroupsListViewModel extends ViewModel {
 
     /**
      * Были ли ошиьки при загрузке
+     *
      * @return возвращает LiveData
      */
     @NonNull

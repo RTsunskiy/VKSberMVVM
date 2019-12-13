@@ -29,79 +29,18 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class FriendsListAdapter extends RecyclerView.Adapter<FriendsListAdapter.FriendHolder> implements Filterable {
 
     private Context mContext;
-    /**Список профилей друзей пользователя, которые необходимо отобразить*/
-    private List<Profile> mFriendsList;
-    /**Слушатель нажатий на элемент списка*/
-    private OnFriendClickListener mClickListener;
-    /**Список профилей друзей, используемый при фильтрации списка (SearchView)*/
-    private List<Profile> mFriendsListFull;
-
-    public FriendsListAdapter(Context context, List<Profile> friendsList) {
-        mContext = context;
-        mFriendsList = new ArrayList<>(friendsList);
-        mFriendsListFull = new ArrayList<>(mFriendsList);
-    }
-
-
-    public void setClickListener(@Nullable OnFriendClickListener clickListener) {
-        mClickListener = clickListener;
-    }
-
-    @NonNull
-    @Override
-    public FriendHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new FriendHolder(LayoutInflater
-                .from(parent.getContext()).inflate(R.layout.item_friend, parent, false));
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull FriendHolder holder, int position) {
-        Profile profile = mFriendsList.get(position);
-        holder.friendName.setText(profile.getmFirstName());
-        holder.friendSername.setText(profile.getmLastName());
-        Picasso.with(mContext.getApplicationContext())
-                .load(profile.getmProfileImage())
-                .placeholder(R.drawable.ic_iconfinder_user)
-                .error(R.drawable.vk_gray_transparent_shape)
-                .into(holder.friendPhoto);
-        holder.itemView.setOnClickListener(v -> {
-            if (mClickListener != null) {
-                mClickListener.onItemClick(mFriendsList.get(position));
-            }
-        });
-
-    }
-
-    @Override
-    public int getItemCount() {
-        return mFriendsList.size();
-    }
-
-
-    class FriendHolder extends RecyclerView.ViewHolder {
-
-        TextView friendName;
-        TextView friendSername;
-        CircleImageView friendPhoto;
-
-        FriendHolder(@NonNull View itemView) {
-            super(itemView);
-            friendName = itemView.findViewById(R.id.friend_name);
-            friendSername = itemView.findViewById(R.id.friend_surname);
-            friendPhoto = itemView.findViewById(R.id.friends_photo);
-        }
-
-    }
-
     /**
-     * Метод для получения отфильтрованного списка друзей
-     * @return возвращает объект класса Filter
+     * Список профилей друзей пользователя, которые необходимо отобразить
      */
-    @Override
-    public Filter getFilter() {
-        return friendFilter;
-    }
-
+    private List<Profile> mFriendsList;
+    /**
+     * Слушатель нажатий на элемент списка
+     */
+    private OnFriendClickListener mClickListener;
+    /**
+     * Список профилей друзей, используемый при фильтрации списка (SearchView)
+     */
+    private List<Profile> mFriendsListFull;
     /**
      * Реализация класса, осуществляющего фильтрацию списка друзей и наполнение коллекции с отфильтрованным списком
      */
@@ -138,4 +77,70 @@ public class FriendsListAdapter extends RecyclerView.Adapter<FriendsListAdapter.
             notifyDataSetChanged();
         }
     };
+
+
+    public FriendsListAdapter(Context context, List<Profile> friendsList) {
+        mContext = context;
+        mFriendsList = new ArrayList<>(friendsList);
+        mFriendsListFull = new ArrayList<>(mFriendsList);
+    }
+
+    public void setClickListener(@Nullable OnFriendClickListener clickListener) {
+        mClickListener = clickListener;
+    }
+
+    @NonNull
+    @Override
+    public FriendHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new FriendHolder(LayoutInflater
+                .from(parent.getContext()).inflate(R.layout.item_friend, parent, false));
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull FriendHolder holder, int position) {
+        Profile profile = mFriendsList.get(position);
+        holder.friendName.setText(profile.getmFirstName());
+        holder.friendSername.setText(profile.getmLastName());
+        Picasso.with(mContext.getApplicationContext())
+                .load(profile.getmProfileImage())
+                .placeholder(R.drawable.ic_iconfinder_user)
+                .error(R.drawable.vk_gray_transparent_shape)
+                .into(holder.friendPhoto);
+        holder.itemView.setOnClickListener(v -> {
+            if (mClickListener != null) {
+                mClickListener.onItemClick(mFriendsList.get(position));
+            }
+        });
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return mFriendsList.size();
+    }
+
+    /**
+     * Метод для получения отфильтрованного списка друзей
+     *
+     * @return возвращает объект класса Filter
+     */
+    @Override
+    public Filter getFilter() {
+        return friendFilter;
+    }
+
+    class FriendHolder extends RecyclerView.ViewHolder {
+
+        TextView friendName;
+        TextView friendSername;
+        CircleImageView friendPhoto;
+
+        FriendHolder(@NonNull View itemView) {
+            super(itemView);
+            friendName = itemView.findViewById(R.id.friend_name);
+            friendSername = itemView.findViewById(R.id.friend_surname);
+            friendPhoto = itemView.findViewById(R.id.friends_photo);
+        }
+
+    }
 }

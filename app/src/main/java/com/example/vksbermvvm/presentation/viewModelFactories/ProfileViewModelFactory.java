@@ -34,7 +34,7 @@ public class ProfileViewModelFactory extends ViewModelProvider.NewInstanceFactor
             ProfileInfoInteractor interactor = new ProfileInfoInteractor(profileRepository);
             Executor executor = Executors.newFixedThreadPool(4);
             ResourceWrapper resourceWrapper = new ResourceWrapper(mApplicationContext.getResources());
-            return (T) new ProfileUserViewModel (
+            return (T) new ProfileUserViewModel(
                     executor,
                     interactor,
                     resourceWrapper);

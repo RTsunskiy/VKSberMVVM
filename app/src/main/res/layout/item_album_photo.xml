@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:background="@color/vk_black_pressed"
-    android:layout_width="100dp"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root_layout"
-    android:layout_height="match_parent">
+    android:layout_width="@dimen/album_photo_width"
+    android:layout_height="match_parent"
+    android:background="@color/vk_black_pressed"
+    android:orientation="vertical">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:id="@+id/album_photo_image"
+        android:layout_width="@dimen/album_photo_width"
+        android:layout_height="@dimen/album_photo_height"
         android:padding="@dimen/default_padding"
-        android:src="@drawable/ic_launcher_background"
-        android:id="@+id/album_photo_image"/>
+        android:src="@drawable/ic_launcher_background" />
 
 </LinearLayout>

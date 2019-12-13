@@ -33,7 +33,9 @@ public class FriendsListFragment extends Fragment {
     private FriendsListViewModel mFriendsListViewModel;
     private View mLoadingView;
     private FriendsListAdapter mFriendsListAdapter;
-    /**Обработка нажатия на элемент списка. В результате нажатия фрагмент должен заменяться на FriendProfileFragment*/
+    /**
+     * Обработка нажатия на элемент списка. В результате нажатия фрагмент должен заменяться на FriendProfileFragment
+     */
     private OnFriendClickListener mOnFriendClickListener = (profile) -> requireActivity()
             .getSupportFragmentManager()
             .beginTransaction()
@@ -86,6 +88,7 @@ public class FriendsListFragment extends Fragment {
 
     /**
      * Переопределенный метод для реализации ToolBar menu. Используется для реализации SearchView.
+     *
      * @param menu
      * @param inflater
      */

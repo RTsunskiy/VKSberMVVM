@@ -29,13 +29,12 @@ import com.squareup.picasso.Picasso;
  */
 public class FriendProfileFragment extends Fragment {
 
+    private static final String ARG_FRIEND_PROFILE = "ARG_FRIEND_PROFILE";
     private FriendProfileViewModel mViewModel;
     private AlbumPhotoAdapter mAlbumPhotoAdapter;
     private RecyclerView mRecyclerView;
     private OnAlbumPhotoClickListener mOnPhotoClickListener;
     private ViewPager2 mViewPager2;
-
-    private static final String ARG_FRIEND_PROFILE = "ARG_FRIEND_PROFILE";
 
     public static FriendProfileFragment newInstance(@NonNull Profile profile) {
         FriendProfileFragment fragment = new FriendProfileFragment();

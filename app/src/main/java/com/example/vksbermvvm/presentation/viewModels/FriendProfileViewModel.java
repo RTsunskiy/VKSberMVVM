@@ -36,6 +36,7 @@ public class FriendProfileViewModel extends ViewModel {
 
     /**
      * Загружает список фотографий из альбомов друга
+     *
      * @param userId идентификатор профиля, для которого необходимо осуществить загрузку фотографий
      */
     public void loadAlbumPhoto(String userId) {
@@ -51,6 +52,7 @@ public class FriendProfileViewModel extends ViewModel {
 
     /**
      * LiveData со списком фотографий
+     *
      * @return возвращает LiveData
      */
     @NonNull
@@ -60,6 +62,7 @@ public class FriendProfileViewModel extends ViewModel {
 
     /**
      * LiveData с ошибками при загрузке
+     *
      * @return возвращает LiveData
      */
     @NonNull

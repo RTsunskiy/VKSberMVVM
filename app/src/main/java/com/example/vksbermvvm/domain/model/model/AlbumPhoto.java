@@ -8,14 +8,22 @@ import androidx.annotation.NonNull;
  */
 
 public class AlbumPhoto {
-    /**url фотографии*/
+    /**
+     * url фотографии
+     */
     private final String mUrl;
-    /**id фотографии*/
-    private int mId;
-    /**id альбома, в котором хранится фотография*/
-    private int mAlbumId;
-    /**тип фотографии (тип влияет на разрешение фотографии)*/
+    /**
+     * тип фотографии (тип влияет на разрешение фотографии)
+     */
     private final String mType;
+    /**
+     * id фотографии
+     */
+    private int mId;
+    /**
+     * id альбома, в котором хранится фотография
+     */
+    private int mAlbumId;
 
     public AlbumPhoto(@NonNull int mId,
                       @NonNull int mAlbumId,

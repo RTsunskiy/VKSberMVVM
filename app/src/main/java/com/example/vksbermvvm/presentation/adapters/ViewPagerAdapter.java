@@ -24,12 +24,10 @@ public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.Albu
     private Context mContext;
 
 
-
     public ViewPagerAdapter(Context context, List<AlbumPhoto> albumPhotos) {
         mAlbumPhotoList = albumPhotos;
         mContext = context;
     }
-
 
 
     @Override
@@ -42,11 +40,11 @@ public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.Albu
 
     @Override
     public void onBindViewHolder(AlbumPhotoHolder holder, int position) {
-            Picasso.with(mContext)
-                    .load(mAlbumPhotoList.get(position).getmUrl())
-                    .placeholder(R.drawable.ic_iconfinder_user)
-                    .error(R.drawable.vk_gray_transparent_shape)
-                    .into(holder.mAlbumPhoto);
+        Picasso.with(mContext)
+                .load(mAlbumPhotoList.get(position).getmUrl())
+                .placeholder(R.drawable.ic_iconfinder_user)
+                .error(R.drawable.vk_gray_transparent_shape)
+                .into(holder.mAlbumPhoto);
     }
 
     @Override
@@ -55,11 +53,10 @@ public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.Albu
     }
 
 
-
     class AlbumPhotoHolder extends RecyclerView.ViewHolder {
         ImageView mAlbumPhoto;
 
-            AlbumPhotoHolder(@NonNull View itemView) {
+        AlbumPhotoHolder(@NonNull View itemView) {
             super(itemView);
             mAlbumPhoto = itemView.findViewById(R.id.album_photo);
         }

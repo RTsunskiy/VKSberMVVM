@@ -38,12 +38,11 @@ public class UserInfoRepository implements IProfileRepository {
     private final String ALBUM_PHOTOS_COUNT = "200";
     private final String FRIENDS_ORDER = "hints";
     private final int GROUP_EXTENDED = 1;
-
-    private Retrofit mRetrofit;
     private final JSONPlaceHolderApi mProfileApi;
     private final List<Profile> friendsList = new ArrayList<>();
     private final List<AlbumPhoto> photosList = new ArrayList<>();
     private final List<Group> groupList = new ArrayList<>();
+    private Retrofit mRetrofit;
 
 
     /**
@@ -61,6 +60,7 @@ public class UserInfoRepository implements IProfileRepository {
 
     /**
      * Метод по загрузке информации о профиле пользователя
+     *
      * @return возвращает объект pojo класса Profile
      * @throws IOException исключение, выбрасываемое, если от сервера пришла ошибка
      */
@@ -85,6 +85,7 @@ public class UserInfoRepository implements IProfileRepository {
 
     /**
      * Метод по загрузке списка друзей пользователя и детальной информации о профилях друзей
+     *
      * @return возвращает коллекцию объектов pojo Profile (информация о профилях друзей пользователя)
      * @throws IOException исключение, выбрасываемое, если от сервера пришла ошибка
      */
@@ -127,6 +128,7 @@ public class UserInfoRepository implements IProfileRepository {
 
     /**
      * Метод по загрузке списка фотографий профиля
+     *
      * @param userId Id пользователя, фотографии которого необходимо получить
      * @return возвращает коллекцию объектов pojo AlbumPhoto
      * @throws IOException исключение, выбрасываемое, если от сервера пришла ошибка
@@ -152,8 +154,7 @@ public class UserInfoRepository implements IProfileRepository {
                 if (size.type.equals("z")) {
                     sizeType = size.type;
                     url = size.url;
-                }
-                else {
+                } else {
                     sizeType = responseAlbum.sizes.get(0).type;
                     url = responseAlbum.sizes.get(0).url;
                 }
@@ -168,6 +169,7 @@ public class UserInfoRepository implements IProfileRepository {
 
     /**
      * Метод для получения списка групп, на которые подписан пользователь
+     *
      * @return возвращает коллекцию pojo объектов Group
      * @throws IOException исключение, выбрасываемое, если не получен ответ от сервера пришла ошибка
      */

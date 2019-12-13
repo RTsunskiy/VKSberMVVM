@@ -102,27 +102,27 @@ public class CurrentUserProfileFragment extends Fragment {
         mViewModel.loadProfile();
         mViewModel.loadAlbumPhoto(CurrentUser.getId());
         mViewModel.getAlbum().observe(this, albumPhotos -> {
-        mAlbumPhotoAdapter = new AlbumPhotoAdapter(getActivity(), albumPhotos);
+            mAlbumPhotoAdapter = new AlbumPhotoAdapter(getActivity(), albumPhotos);
 
-        mRecyclerView.setAdapter(mAlbumPhotoAdapter);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(),
-                LinearLayoutManager.HORIZONTAL,
-                false);
-        mRecyclerView.setLayoutManager(layoutManager);
+            mRecyclerView.setAdapter(mAlbumPhotoAdapter);
+            LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(),
+                    LinearLayoutManager.HORIZONTAL,
+                    false);
+            mRecyclerView.setLayoutManager(layoutManager);
 
             /**
              * Обработка нажатия на фотографию в альбоме пользователя
              */
-        mOnPhotoClickListener = position -> {
-            mViewPager2.setAdapter(new ViewPagerAdapter(getActivity(), albumPhotos));
-            mViewPager2.setUserInputEnabled(true);
-            mViewPager2.setVisibility(View.VISIBLE);
-            mViewPager2.postDelayed(() -> mViewPager2.setCurrentItem(position), 1);
-        };
+            mOnPhotoClickListener = position -> {
+                mViewPager2.setAdapter(new ViewPagerAdapter(getActivity(), albumPhotos));
+                mViewPager2.setUserInputEnabled(true);
+                mViewPager2.setVisibility(View.VISIBLE);
+                mViewPager2.postDelayed(() -> mViewPager2.setCurrentItem(position), 1);
+            };
             mAlbumPhotoAdapter.setClickListener(mOnPhotoClickListener);
-    });
+        });
 
-}
+    }
 
     private void initView(View view) {
         profileImage = view.findViewById(R.id.profile_image);

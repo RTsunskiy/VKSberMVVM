@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 
 /**
  * Обёртка над ресурсами приложения, нужна для того чтобы
- *  вью модель и доменный слой не зависели от классов из Android SDK.
+ * вью модель и доменный слой не зависели от классов из Android SDK.
  */
 
 public class ResourceWrapper implements IResourceWrapper {

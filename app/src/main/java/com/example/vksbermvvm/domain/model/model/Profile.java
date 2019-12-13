@@ -13,22 +13,42 @@ import java.util.Objects;
  */
 
 public class Profile implements Parcelable {
-    /**имя владельца профиля*/
+    public static final Creator<Profile> CREATOR = new Creator<Profile>() {
+        @Override
+        public Profile createFromParcel(Parcel in) {
+            return new Profile(in);
+        }
+
+        @Override
+        public Profile[] newArray(int size) {
+            return new Profile[size];
+        }
+    };
+    /**
+     * имя владельца профиля
+     */
     private final String mFirstName;
-    /**фамилия владельца профиля*/
+    /**
+     * фамилия владельца профиля
+     */
     private final String mLastName;
-    /**дата рождения владельца профиля*/
+    /**
+     * дата рождения владельца профиля
+     */
     private final String mDate;
-    /**город, в котором проживает владелец профиля*/
+    /**
+     * город, в котором проживает владелец профиля
+     */
     private final String mCity;
-    /**страна, в которой проживает владелец профиля*/
+    /**
+     * страна, в которой проживает владелец профиля
+     */
     private final String mCountry;
-    /**id профиля*/
+    /**
+     * id профиля
+     */
     private final int mId;
-
-
     private final String mProfileImage;
-
 
     public Profile(@NonNull String firstName,
                    @NonNull String lastName,
@@ -55,18 +75,6 @@ public class Profile implements Parcelable {
         mId = in.readInt();
         mProfileImage = in.readString();
     }
-
-    public static final Creator<Profile> CREATOR = new Creator<Profile>() {
-        @Override
-        public Profile createFromParcel(Parcel in) {
-            return new Profile(in);
-        }
-
-        @Override
-        public Profile[] newArray(int size) {
-            return new Profile[size];
-        }
-    };
 
     @Override
     public boolean equals(Object o) {

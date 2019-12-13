@@ -18,7 +18,7 @@ public interface IResourceWrapper {
     /**
      * Получить форматированную строку
      *
-     * @param resId идентификатор строки
+     * @param resId      идентификатор строки
      * @param formatArgs аргументы форматирования
      */
     String getString(@StringRes int resId, Object... formatArgs);

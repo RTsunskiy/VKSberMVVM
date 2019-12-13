@@ -53,6 +53,7 @@ public class FriendsListViewModel extends ViewModel {
 
     /**
      * LiveData со списком профилей друзей
+     *
      * @return возвращает LiveData
      */
     @NonNull
@@ -62,6 +63,7 @@ public class FriendsListViewModel extends ViewModel {
 
     /**
      * Завершена ли загрузка
+     *
      * @return возвращает LiveData
      */
     @NonNull
@@ -71,6 +73,7 @@ public class FriendsListViewModel extends ViewModel {
 
     /**
      * Есть ли ошибки при загрузке
+     *
      * @return возвращает LiveData
      */
     @NonNull

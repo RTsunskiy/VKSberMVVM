@@ -3,4 +3,18 @@
     <dimen name="default_padding">8dp</dimen>
     <dimen name="default_margin">4dp</dimen>
     <dimen name="text_size">20sp</dimen>
+    <dimen name="colapsing_expanded_margin_start">48dp</dimen>
+    <dimen name="colapsing_expanded_margin_end">64dp</dimen>
+    <dimen name="profile_main_image_height">350dp</dimen>
+    <dimen name="separate_view_height">2dp</dimen>
+    <dimen name="album_photo_width">100dp</dimen>
+    <dimen name="album_photo_height">100dp</dimen>
+    <dimen name="item_friend_corner_radius">5dp</dimen>
+    <dimen name="item_elevation">5dp</dimen>
+    <dimen name="item_image_width">70dp</dimen>
+    <dimen name="item_image_height">70dp</dimen>
+    <dimen name="main_text_size">15sp</dimen>
+    <dimen name="card_view_height">80dp</dimen>
+    <dimen name="close_group_image_width">20dp</dimen>
+    <dimen name="close_group_image_height">20dp</dimen>
 </resources>
