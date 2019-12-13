@@ -1,4 +1,4 @@
-package com.example.vksbermvvm.presentation;
+package com.example.vksbermvvm.presentation.viewModels;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
@@ -22,16 +22,16 @@ public class FriendProfileViewModel extends ViewModel {
     private final SingleLiveEvent<String> mErrors = new SingleLiveEvent<>();
     private final IResourceWrapper mResourceWrapper;
 
-    FriendProfileViewModel(@NonNull Executor executor,
-                           @NonNull ProfileInfoInteractor profileInfoInteractor,
-                           @NonNull IResourceWrapper resourceWrapper) {
+    public FriendProfileViewModel(@NonNull Executor executor,
+                                  @NonNull ProfileInfoInteractor profileInfoInteractor,
+                                  @NonNull IResourceWrapper resourceWrapper) {
         mProfileInfoInteractor = profileInfoInteractor;
         mExecutor = executor;
         mResourceWrapper = resourceWrapper;
     }
 
 
-    void loadAlbumPhoto(String userId) {
+    public void loadAlbumPhoto(String userId) {
         mExecutor.execute(() -> {
             try {
                 List<AlbumPhoto> albumPhoto = mProfileInfoInteractor.loadAlbumPhotos(userId);
@@ -43,7 +43,7 @@ public class FriendProfileViewModel extends ViewModel {
     }
 
     @NonNull
-    LiveData<List<AlbumPhoto>> getAlbum() {
+    public LiveData<List<AlbumPhoto>> getAlbum() {
         return mAlbumPhoto;
     }
 

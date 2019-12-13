@@ -1,4 +1,4 @@
-package com.example.vksbermvvm.presentation;
+package com.example.vksbermvvm.presentation.viewModelFactories;
 
 import android.content.Context;
 
@@ -10,6 +10,7 @@ import com.example.vksbermvvm.data.UserInfoRepository;
 import com.example.vksbermvvm.domain.model.IProfileRepository;
 import com.example.vksbermvvm.domain.model.ProfileInfoInteractor;
 import com.example.vksbermvvm.presentation.utils.ResourceWrapper;
+import com.example.vksbermvvm.presentation.viewModels.FriendProfileViewModel;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;

@@ -11,7 +11,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:id="@+id/app_bar"
-        android:background="@color/vk_color"
+        android:background="@color/vk_white"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true">
 
@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher_background"
+        android:src="@drawable/ic_iconfinder_user"
         app:layout_scrollFlags="scroll" />
 
 

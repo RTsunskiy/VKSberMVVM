@@ -3,25 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="80dp"
     android:layout_marginStart="@dimen/default_margin"
     android:layout_marginTop="@dimen/default_margin"
     android:layout_marginEnd="@dimen/default_margin"
     android:layout_marginBottom="@dimen/default_margin"
-    android:background="@color/vk_white"
+    android:background="@color/vk_light_color"
     app:cardCornerRadius="5dp"
     app:cardElevation="5dp">
 
     <RelativeLayout
         android:id="@+id/root_constraint"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="match_parent"
         android:background="@color/vk_light_color">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/group_photo"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:padding="@dimen/default_padding"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_background" />
@@ -32,8 +32,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/group_photo"
+            android:textSize="15sp"
             android:padding="@dimen/default_padding"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
             tools:text="Text" />
 
 
@@ -41,19 +42,21 @@
             android:id="@+id/group_screen_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/group_name"
-            android:padding="@dimen/default_padding"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:layout_below="@id/group_name"
+            android:layout_toRightOf="@id/group_photo"
+            android:paddingBottom="@dimen/default_padding"
+            android:paddingStart="@dimen/default_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
             tools:text="Text" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/closed_indicator"
-            android:layout_width="10dp"
+            android:layout_width="20dp"
             android:layout_margin="@dimen/default_margin"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
             android:scaleType="centerCrop"
-            android:layout_height="10dp" />
+            android:layout_height="20dp" />
 
 
     </RelativeLayout>

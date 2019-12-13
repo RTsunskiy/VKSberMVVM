@@ -1,4 +1,4 @@
-package com.example.vksbermvvm.presentation;
+package com.example.vksbermvvm.presentation.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,6 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vksbermvvm.R;
+import com.example.vksbermvvm.presentation.adapters.GroupsListAdapter;
+import com.example.vksbermvvm.presentation.viewModelFactories.GroupsListViewModelFactory;
+import com.example.vksbermvvm.presentation.viewModels.GroupsListViewModel;
 
 public class GroupsListFragment extends Fragment {
 

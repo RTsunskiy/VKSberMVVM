@@ -1,4 +1,4 @@
-package com.example.vksbermvvm.presentation.viewmodels;
+package com.example.vksbermvvm.presentation.viewModels;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
@@ -27,15 +27,15 @@ public class ProfileUserViewModel extends ViewModel {
     private final SingleLiveEvent<String> mErrors = new SingleLiveEvent<>();
     private final IResourceWrapper mResourceWrapper;
 
-    ProfileUserViewModel(@NonNull Executor executor,
-                         @NonNull ProfileInfoInteractor profileInfoInteractor,
-                         @NonNull IResourceWrapper resourceWrapper) {
+    public ProfileUserViewModel(@NonNull Executor executor,
+                                @NonNull ProfileInfoInteractor profileInfoInteractor,
+                                @NonNull IResourceWrapper resourceWrapper) {
         mProfileInfoInteractor = profileInfoInteractor;
         mExecutor = executor;
         mResourceWrapper = resourceWrapper;
     }
 
-    void loadProfile() {
+    public void loadProfile() {
         mIsLoading.setValue(true);
         mExecutor.execute(() -> {
             try {
@@ -49,7 +49,7 @@ public class ProfileUserViewModel extends ViewModel {
     }
 
 
-    void loadAlbumPhoto(String userId) {
+    public void loadAlbumPhoto(String userId) {
         mExecutor.execute(() -> {
             try {
                 List<AlbumPhoto> albumPhoto = mProfileInfoInteractor.loadAlbumPhotos(userId);
@@ -62,22 +62,22 @@ public class ProfileUserViewModel extends ViewModel {
     }
 
     @NonNull
-    LiveData<Profile> getProfile() {
+    public LiveData<Profile> getProfile() {
         return mProfile;
     }
 
     @NonNull
-    LiveData<List<AlbumPhoto>> getAlbum() {
+    public LiveData<List<AlbumPhoto>> getAlbum() {
         return mAlbumPhoto;
     }
 
     @NonNull
-    LiveData<Boolean> isLoading() {
+    public LiveData<Boolean> isLoading() {
         return mIsLoading;
     }
 
     @NonNull
-    LiveData<String> getErrors() {
+    public LiveData<String> getErrors() {
         return mErrors;
     }
 

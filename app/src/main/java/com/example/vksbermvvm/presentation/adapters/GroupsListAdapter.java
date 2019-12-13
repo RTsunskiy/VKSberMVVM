@@ -1,4 +1,4 @@
-package com.example.vksbermvvm.presentation;
+package com.example.vksbermvvm.presentation.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -43,14 +43,14 @@ public class GroupsListAdapter extends RecyclerView.Adapter<GroupsListAdapter.Gr
         holder.mGroupScreenName.setText(group.getmScreenName());
         Picasso.with(mContext.getApplicationContext())
                 .load(group.getmPhoto())
-                .placeholder(R.drawable.ic_launcher_background)
+                .placeholder(R.drawable.ic_iconfinder_user)
                 .error(R.drawable.vk_gray_transparent_shape)
                 .into(holder.mGroupPhoto);
 
         if (group.getmIsClosed() == 0) {
-            holder.mIsClosedIndicator.setBackgroundColor(mContext.getResources().getColor(R.color.colorGreen));
+            holder.mIsClosedIndicator.setBackground(mContext.getResources().getDrawable(R.drawable.ic_iconfinder_icon_open));
         }
-        else holder.mIsClosedIndicator.setBackgroundColor(mContext.getResources().getColor(R.color.colorRed));
+        else holder.mIsClosedIndicator.setBackground(mContext.getResources().getDrawable(R.drawable.ic_iconfinder_close));
     }
 
     @Override

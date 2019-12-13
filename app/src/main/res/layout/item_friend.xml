@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/vk_white"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="75dp"
     android:layout_marginTop="@dimen/default_margin"
     android:layout_marginBottom="@dimen/default_margin"
     android:layout_marginStart="@dimen/default_margin"
@@ -18,11 +18,11 @@
     android:id="@+id/root_constraint"
     android:background="@color/vk_light_color"
     android:layout_width="match_parent"
-    android:layout_height="50dp">
+    android:layout_height="match_parent">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="54dp"
-        android:layout_height="54dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:padding="@dimen/default_padding"
         android:scaleType="centerCrop"
         android:id="@+id/friends_photo"
@@ -36,7 +36,9 @@
         android:id="@+id/friend_name"
         android:padding="@dimen/default_padding"
         tools:text="Text"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+        android:layout_centerVertical="true"
+        android:textSize="15sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
 
 
     <TextView
@@ -46,7 +48,9 @@
         android:id="@+id/friend_surname"
         android:padding="@dimen/default_padding"
         tools:text="Text"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+        android:layout_centerVertical="true"
+        android:textSize="15sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
 
 
 </RelativeLayout>

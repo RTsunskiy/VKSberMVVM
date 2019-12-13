@@ -1,4 +1,4 @@
-package com.example.vksbermvvm.presentation;
+package com.example.vksbermvvm.presentation.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vksbermvvm.R;
 import com.example.vksbermvvm.domain.model.model.AlbumPhoto;
+import com.example.vksbermvvm.presentation.utils.OnAlbumPhotoClickListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -46,7 +47,7 @@ public class AlbumPhotoAdapter extends RecyclerView.Adapter<AlbumPhotoAdapter.Al
         AlbumPhoto albumPhoto = mPhotosList.get(position);
         Picasso.with(mContext.getApplicationContext())
                 .load(albumPhoto.getmUrl())
-                .placeholder(R.drawable.ic_launcher_background)
+                .placeholder(R.drawable.ic_iconfinder_user)
                 .error(R.drawable.vk_gray_transparent_shape)
                 .into(holder.albumPhoto);
 

@@ -1,4 +1,4 @@
-package com.example.vksbermvvm.presentation;
+package com.example.vksbermvvm.presentation.viewModels;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
@@ -23,15 +23,15 @@ public class GroupsListViewModel extends ViewModel {
     private final SingleLiveEvent<String> mErrors = new SingleLiveEvent<>();
     private final IResourceWrapper mResourceWrapper;
 
-    GroupsListViewModel(@NonNull Executor executor,
-                         @NonNull ProfileInfoInteractor profileInfoInteractor,
-                         @NonNull IResourceWrapper resourceWrapper) {
+    public GroupsListViewModel(@NonNull Executor executor,
+                               @NonNull ProfileInfoInteractor profileInfoInteractor,
+                               @NonNull IResourceWrapper resourceWrapper) {
         mProfileInfoInteractor = profileInfoInteractor;
         mExecutor = executor;
         mResourceWrapper = resourceWrapper;
     }
 
-    void loadGroupList() {
+    public void loadGroupList() {
         mIsLoading.setValue(true);
         mExecutor.execute(() -> {
             try {
@@ -45,17 +45,17 @@ public class GroupsListViewModel extends ViewModel {
     }
 
     @NonNull
-    LiveData<List<Group>> getGroupList() {
+    public LiveData<List<Group>> getGroupList() {
         return mGroupList;
     }
 
     @NonNull
-    LiveData<Boolean> isLoading() {
+    public LiveData<Boolean> isLoading() {
         return mIsLoading;
     }
 
     @NonNull
-    LiveData<String> getErrors() {
+    public LiveData<String> getErrors() {
         return mErrors;
     }
 

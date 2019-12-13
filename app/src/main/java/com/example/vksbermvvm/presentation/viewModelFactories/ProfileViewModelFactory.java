@@ -1,4 +1,4 @@
-package com.example.vksbermvvm.presentation;
+package com.example.vksbermvvm.presentation.viewModelFactories;
 
 import android.content.Context;
 
@@ -10,27 +10,28 @@ import com.example.vksbermvvm.data.UserInfoRepository;
 import com.example.vksbermvvm.domain.model.IProfileRepository;
 import com.example.vksbermvvm.domain.model.ProfileInfoInteractor;
 import com.example.vksbermvvm.presentation.utils.ResourceWrapper;
+import com.example.vksbermvvm.presentation.viewModels.ProfileUserViewModel;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-public class FriendsListViewModelFactory extends ViewModelProvider.NewInstanceFactory {
+public class ProfileViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 
     private final Context mApplicationContext;
 
-    public FriendsListViewModelFactory(@NonNull Context context) {
+    public ProfileViewModelFactory(@NonNull Context context) {
         mApplicationContext = context.getApplicationContext();
     }
 
     @NonNull
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-        if (FriendsListViewModel.class.equals(modelClass)) {
+        if (ProfileUserViewModel.class.equals(modelClass)) {
             IProfileRepository profileRepository = new UserInfoRepository();
             ProfileInfoInteractor interactor = new ProfileInfoInteractor(profileRepository);
-            Executor executor = Executors.newSingleThreadExecutor();
+            Executor executor = Executors.newFixedThreadPool(4);
             ResourceWrapper resourceWrapper = new ResourceWrapper(mApplicationContext.getResources());
-            return (T) new FriendsListViewModel(
+            return (T) new ProfileUserViewModel (
                     executor,
                     interactor,
                     resourceWrapper);

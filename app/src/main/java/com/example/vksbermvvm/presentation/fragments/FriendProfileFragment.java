@@ -1,4 +1,4 @@
-package com.example.vksbermvvm.presentation;
+package com.example.vksbermvvm.presentation.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,6 +17,11 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.vksbermvvm.R;
 import com.example.vksbermvvm.domain.model.model.Profile;
+import com.example.vksbermvvm.presentation.utils.OnAlbumPhotoClickListener;
+import com.example.vksbermvvm.presentation.adapters.AlbumPhotoAdapter;
+import com.example.vksbermvvm.presentation.adapters.ViewPagerAdapter;
+import com.example.vksbermvvm.presentation.viewModelFactories.FriendProfileViewModelFactory;
+import com.example.vksbermvvm.presentation.viewModels.FriendProfileViewModel;
 import com.squareup.picasso.Picasso;
 
 public class FriendProfileFragment extends Fragment {
@@ -64,7 +69,7 @@ public class FriendProfileFragment extends Fragment {
         mViewPager2 = view.findViewById(R.id.viewPager2_album_photos);
         Picasso.with(getActivity().getApplicationContext())
                 .load(profile.getmProfileImage())
-                .placeholder(R.drawable.ic_launcher_background)
+                .placeholder(R.drawable.ic_iconfinder_user)
                 .error(R.drawable.vk_gray_transparent_shape)
                 .into((ImageView) view.findViewById(R.id.profile_image));
 

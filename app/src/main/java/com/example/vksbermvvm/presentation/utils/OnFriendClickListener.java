@@ -1,4 +1,4 @@
-package com.example.vksbermvvm.presentation;
+package com.example.vksbermvvm.presentation.utils;
 
 import androidx.annotation.NonNull;
 

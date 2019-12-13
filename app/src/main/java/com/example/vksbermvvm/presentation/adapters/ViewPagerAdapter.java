@@ -1,4 +1,4 @@
-package com.example.vksbermvvm.presentation;
+package com.example.vksbermvvm.presentation.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -22,7 +22,7 @@ public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.Albu
 
 
 
-    ViewPagerAdapter(Context context, List<AlbumPhoto> albumPhotos) {
+    public ViewPagerAdapter(Context context, List<AlbumPhoto> albumPhotos) {
         mAlbumPhotoList = albumPhotos;
         mContext = context;
     }
@@ -41,7 +41,7 @@ public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.Albu
     public void onBindViewHolder(AlbumPhotoHolder holder, int position) {
             Picasso.with(mContext)
                     .load(mAlbumPhotoList.get(position).getmUrl())
-                    .placeholder(R.drawable.ic_launcher_background)
+                    .placeholder(R.drawable.ic_iconfinder_user)
                     .error(R.drawable.vk_gray_transparent_shape)
                     .into(holder.mAlbumPhoto);
     }

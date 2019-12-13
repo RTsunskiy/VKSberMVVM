@@ -1,19 +1,28 @@
-package com.example.vksbermvvm.presentation;
+package com.example.vksbermvvm.presentation.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vksbermvvm.R;
+import com.example.vksbermvvm.presentation.utils.OnFriendClickListener;
+import com.example.vksbermvvm.presentation.adapters.FriendsListAdapter;
+import com.example.vksbermvvm.presentation.viewModelFactories.FriendsListViewModelFactory;
+import com.example.vksbermvvm.presentation.viewModels.FriendsListViewModel;
 
 public class FriendsListFragment extends Fragment {
 
@@ -39,6 +48,7 @@ public class FriendsListFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        setHasOptionsMenu(true);
     }
 
     @Nullable
@@ -66,4 +76,26 @@ public class FriendsListFragment extends Fragment {
         mFriendsListViewModel.isLoading().observe(this, isLoading -> mLoadingView.setVisibility(isLoading ? View.VISIBLE : View.GONE));
         mFriendsListViewModel.loadFriendsList();
     }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_toolbar, menu);
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                mFriendsListAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+    }
+
 }
