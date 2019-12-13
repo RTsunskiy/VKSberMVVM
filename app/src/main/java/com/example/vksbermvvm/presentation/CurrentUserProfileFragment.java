@@ -18,6 +18,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.vksbermvvm.R;
 import com.example.vksbermvvm.data.CurrentUser;
+import com.example.vksbermvvm.presentation.viewmodels.ProfileUserViewModel;
 import com.squareup.picasso.Picasso;
 
 

@@ -1,4 +1,4 @@
-package com.example.vksbermvvm.presentation;
+package com.example.vksbermvvm.presentation.viewmodels;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
