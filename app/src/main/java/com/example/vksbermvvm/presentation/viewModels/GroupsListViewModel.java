@@ -44,7 +44,7 @@ public class GroupsListViewModel extends ViewModel {
                 List<Group> groupList = mProfileInfoInteractor.loadGroups(currentUserToken);
                 mGroupList.postValue(groupList);
             } catch (LoadGroupsExceprtion e) {
-                mErrors.postValue(mResourceWrapper.getString(R.string.error_loading_friends));
+                mErrors.postValue(mResourceWrapper.getString(R.string.error_loading_groups));
             }
             mIsLoading.postValue(false);
         });

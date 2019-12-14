@@ -66,7 +66,7 @@ public class FriendProfileViewModel extends ViewModel {
      * @return возвращает LiveData
      */
     @NonNull
-    LiveData<String> getErrors() {
+    public LiveData<String> getErrors() {
         return mErrors;
     }
 
