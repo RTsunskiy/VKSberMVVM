@@ -38,11 +38,11 @@ public class FriendsListViewModel extends ViewModel {
     /**
      * Загружает список друзей пользователя
      */
-    public void loadFriendsList() {
+    public void loadFriendsList(String currentUserToken) {
         mIsLoading.setValue(true);
         mExecutor.execute(() -> {
             try {
-                List<Profile> friendsListProfile = mProfileInfoInteractor.loadFriendsList();
+                List<Profile> friendsListProfile = mProfileInfoInteractor.loadFriendsList(currentUserToken);
                 mFriendsList.postValue(friendsListProfile);
             } catch (LoadFriendsException e) {
                 mErrors.postValue(mResourceWrapper.getString(R.string.error_loading_friends));

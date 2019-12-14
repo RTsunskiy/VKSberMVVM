@@ -66,8 +66,8 @@ public class UserInfoRepository implements IProfileRepository {
      */
     @NonNull
     @Override
-    public Profile loadProfileInfo() throws IOException {
-        Response<ResponseExample> response = mProfileApi.getUserInfo(CurrentUser.getAccessToken(),
+    public Profile loadProfileInfo(String currentUserToken) throws IOException {
+        Response<ResponseExample> response = mProfileApi.getUserInfo(currentUserToken,
                 PROFILE_FIELDS,
                 VK_API_VERSION).execute();
         if (response.body() == null || response.errorBody() != null) {
@@ -91,8 +91,8 @@ public class UserInfoRepository implements IProfileRepository {
      */
     @NonNull
     @Override
-    public List<Profile> loadFriendsList() throws IOException {
-        Response<Friends> response = mProfileApi.getFriends(CurrentUser.getAccessToken(),
+    public List<Profile> loadFriendsList(String currentUserToken) throws IOException {
+        Response<Friends> response = mProfileApi.getFriends(currentUserToken,
                 FRIENDS_ORDER,
                 FRIENDS_FIELDS,
                 VK_API_VERSION).execute();
@@ -135,8 +135,8 @@ public class UserInfoRepository implements IProfileRepository {
      */
     @NonNull
     @Override
-    public List<AlbumPhoto> loadAlbumPhotos(String userId) throws IOException {
-        Response<AlbumPhotos> response = mProfileApi.getAlbumPhotos(CurrentUser.getAccessToken(),
+    public List<AlbumPhoto> loadAlbumPhotos(String userId, String currentUserToken) throws IOException {
+        Response<AlbumPhotos> response = mProfileApi.getAlbumPhotos(currentUserToken,
                 userId,
                 ALBUM_PHOTOS_SIZES,
                 ALBUM_PHOTOS_HIDDEN,
@@ -175,8 +175,8 @@ public class UserInfoRepository implements IProfileRepository {
      */
     @NonNull
     @Override
-    public List<Group> loadGroups() throws IOException {
-        Response<Groups> response = mProfileApi.getGroups(CurrentUser.getAccessToken(),
+    public List<Group> loadGroups(String currentUserToken) throws IOException {
+        Response<Groups> response = mProfileApi.getGroups(currentUserToken,
                 GROUP_EXTENDED,
                 VK_API_VERSION).execute();
         if (response.body() == null || response.errorBody() != null) {

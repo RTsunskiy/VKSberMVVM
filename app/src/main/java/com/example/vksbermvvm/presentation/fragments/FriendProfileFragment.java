@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.vksbermvvm.R;
+import com.example.vksbermvvm.data.CurrentUser;
 import com.example.vksbermvvm.domain.model.model.Profile;
 import com.example.vksbermvvm.presentation.utils.OnAlbumPhotoClickListener;
 import com.example.vksbermvvm.presentation.adapters.AlbumPhotoAdapter;
@@ -79,7 +80,7 @@ public class FriendProfileFragment extends Fragment {
                 .error(R.drawable.vk_gray_transparent_shape)
                 .into((ImageView) view.findViewById(R.id.profile_image));
 
-        mViewModel.loadAlbumPhoto(String.valueOf(profile.getmId()));
+        mViewModel.loadAlbumPhoto(String.valueOf(profile.getmId()), CurrentUser.getAccessToken());
         mViewModel.getAlbum().observe(this, albumPhotos -> {
             mAlbumPhotoAdapter = new AlbumPhotoAdapter(getActivity(), albumPhotos);
             mRecyclerView.setAdapter(mAlbumPhotoAdapter);

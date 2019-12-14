@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vksbermvvm.R;
+import com.example.vksbermvvm.data.CurrentUser;
 import com.example.vksbermvvm.presentation.utils.OnFriendClickListener;
 import com.example.vksbermvvm.presentation.adapters.FriendsListAdapter;
 import com.example.vksbermvvm.presentation.viewModelFactories.FriendsListViewModelFactory;
@@ -83,7 +84,7 @@ public class FriendsListFragment extends Fragment {
             mFriendsRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
         });
         mFriendsListViewModel.isLoading().observe(this, isLoading -> mLoadingView.setVisibility(isLoading ? View.VISIBLE : View.GONE));
-        mFriendsListViewModel.loadFriendsList();
+        mFriendsListViewModel.loadFriendsList(CurrentUser.getAccessToken());
     }
 
     /**

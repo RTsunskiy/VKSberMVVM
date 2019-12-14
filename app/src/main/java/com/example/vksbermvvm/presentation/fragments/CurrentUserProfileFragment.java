@@ -99,8 +99,8 @@ public class CurrentUserProfileFragment extends Fragment {
         });
 
         mViewModel.isLoading().observe(this, isLoading -> mLoadingView.setVisibility(isLoading ? View.VISIBLE : View.GONE));
-        mViewModel.loadProfile();
-        mViewModel.loadAlbumPhoto(CurrentUser.getId());
+        mViewModel.loadProfile(CurrentUser.getAccessToken());
+        mViewModel.loadAlbumPhoto(CurrentUser.getId(), CurrentUser.getAccessToken());
         mViewModel.getAlbum().observe(this, albumPhotos -> {
             mAlbumPhotoAdapter = new AlbumPhotoAdapter(getActivity(), albumPhotos);
 

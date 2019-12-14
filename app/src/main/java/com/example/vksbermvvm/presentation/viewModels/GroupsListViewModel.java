@@ -37,11 +37,11 @@ public class GroupsListViewModel extends ViewModel {
     /**
      * Возвращает список групп, на которые подписан пользователь
      */
-    public void loadGroupList() {
+    public void loadGroupList(String currentUserToken) {
         mIsLoading.setValue(true);
         mExecutor.execute(() -> {
             try {
-                List<Group> groupList = mProfileInfoInteractor.loadGroups();
+                List<Group> groupList = mProfileInfoInteractor.loadGroups(currentUserToken);
                 mGroupList.postValue(groupList);
             } catch (LoadGroupsExceprtion e) {
                 mErrors.postValue(mResourceWrapper.getString(R.string.error_loading_friends));

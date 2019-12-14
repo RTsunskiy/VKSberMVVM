@@ -39,10 +39,10 @@ public class FriendProfileViewModel extends ViewModel {
      *
      * @param userId идентификатор профиля, для которого необходимо осуществить загрузку фотографий
      */
-    public void loadAlbumPhoto(String userId) {
+    public void loadAlbumPhoto(String userId, String currentUserToken) {
         mExecutor.execute(() -> {
             try {
-                List<AlbumPhoto> albumPhoto = mProfileInfoInteractor.loadAlbumPhotos(userId);
+                List<AlbumPhoto> albumPhoto = mProfileInfoInteractor.loadAlbumPhotos(userId, currentUserToken);
                 mAlbumPhoto.postValue(albumPhoto);
             } catch (LoadAlbumPhotosException e) {
                 mErrors.postValue(mResourceWrapper.getString(R.string.error_loading_album));

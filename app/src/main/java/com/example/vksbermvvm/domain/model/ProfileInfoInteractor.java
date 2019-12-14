@@ -34,9 +34,9 @@ public class ProfileInfoInteractor {
      * @throws LoadProfileException собственное исключение, выбрасываемое,
      *                              если не удалось получить данные о профиле с сервера
      */
-    public Profile loadProfileInfo() throws LoadProfileException {
+    public Profile loadProfileInfo(String currentUserToken) throws LoadProfileException {
         try {
-            return mProfileRepository.loadProfileInfo();
+            return mProfileRepository.loadProfileInfo(currentUserToken);
         } catch (IOException e) {
             throw new LoadProfileException("Не удалось загрузить профиль пользователя", e);
         }
@@ -49,9 +49,9 @@ public class ProfileInfoInteractor {
      * @throws LoadFriendsException собственное исключение, выбрасываемое,
      *                              если не удалось получить список друзей пользователя
      */
-    public List<Profile> loadFriendsList() throws LoadFriendsException {
+    public List<Profile> loadFriendsList(String currentUserToken) throws LoadFriendsException {
         try {
-            return mProfileRepository.loadFriendsList();
+            return mProfileRepository.loadFriendsList(currentUserToken);
         } catch (IOException e) {
             throw new LoadFriendsException("Не удалось загрузить список друзей", e);
         }
@@ -65,9 +65,9 @@ public class ProfileInfoInteractor {
      * @throws LoadAlbumPhotosException собственное исключение, выбрасываемое,
      *                                  если не удалось получить список фотографий
      */
-    public List<AlbumPhoto> loadAlbumPhotos(String userId) throws LoadAlbumPhotosException {
+    public List<AlbumPhoto> loadAlbumPhotos(String userId, String currentUserToken) throws LoadAlbumPhotosException {
         try {
-            return mProfileRepository.loadAlbumPhotos(userId);
+            return mProfileRepository.loadAlbumPhotos(userId, currentUserToken);
         } catch (IOException e) {
             throw new LoadAlbumPhotosException("Не удалось загрузить альбом пользователя", e);
         }
@@ -80,9 +80,9 @@ public class ProfileInfoInteractor {
      * @throws LoadGroupsExceprtion собственное исключение, выбрасываемое,
      *                              если не удалось получить список групп, на которые подписан пользователь
      */
-    public List<Group> loadGroups() throws LoadGroupsExceprtion {
+    public List<Group> loadGroups(String currentUserToken) throws LoadGroupsExceprtion {
         try {
-            return mProfileRepository.loadGroups();
+            return mProfileRepository.loadGroups(currentUserToken);
         } catch (IOException e) {
             throw new LoadGroupsExceprtion("Не удалось загрузить список групп", e);
         }

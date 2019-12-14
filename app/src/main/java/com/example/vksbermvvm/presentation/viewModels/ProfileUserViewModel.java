@@ -41,11 +41,11 @@ public class ProfileUserViewModel extends ViewModel {
     /**
      * Метод для получения информации о профиле
      */
-    public void loadProfile() {
+    public void loadProfile(String currentUserToken) {
         mIsLoading.setValue(true);
         mExecutor.execute(() -> {
             try {
-                Profile profile = mProfileInfoInteractor.loadProfileInfo();
+                Profile profile = mProfileInfoInteractor.loadProfileInfo(currentUserToken);
                 mProfile.postValue(profile);
             } catch (LoadProfileException e) {
                 mErrors.postValue(mResourceWrapper.getString(R.string.error_loading_profile));
@@ -60,10 +60,10 @@ public class ProfileUserViewModel extends ViewModel {
      *
      * @param userId идентификатор пользователя, фотографии которого необходимо получить
      */
-    public void loadAlbumPhoto(String userId) {
+    public void loadAlbumPhoto(String userId, String currentUserToken) {
         mExecutor.execute(() -> {
             try {
-                List<AlbumPhoto> albumPhoto = mProfileInfoInteractor.loadAlbumPhotos(userId);
+                List<AlbumPhoto> albumPhoto = mProfileInfoInteractor.loadAlbumPhotos(userId, currentUserToken);
                 mAlbumPhoto.postValue(albumPhoto);
             } catch (LoadAlbumPhotosException e) {
                 mErrors.postValue(mResourceWrapper.getString(R.string.error_loading_album));

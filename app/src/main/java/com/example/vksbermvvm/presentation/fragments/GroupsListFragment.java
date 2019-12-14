@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vksbermvvm.R;
+import com.example.vksbermvvm.data.CurrentUser;
 import com.example.vksbermvvm.presentation.adapters.GroupsListAdapter;
 import com.example.vksbermvvm.presentation.viewModelFactories.GroupsListViewModelFactory;
 import com.example.vksbermvvm.presentation.viewModels.GroupsListViewModel;
@@ -64,6 +65,6 @@ public class GroupsListFragment extends Fragment {
             mGroupsRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
         });
         mGroupsListViewModel.isLoading().observe(this, isLoading -> mLoadingView.setVisibility(isLoading ? View.VISIBLE : View.GONE));
-        mGroupsListViewModel.loadGroupList();
+        mGroupsListViewModel.loadGroupList(CurrentUser.getAccessToken());
     }
 }

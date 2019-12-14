@@ -21,7 +21,7 @@ public interface IProfileRepository {
      * @throws IOException исключение, выбрасываемое, если от сервера пришла ошибка
      */
     @NonNull
-    Profile loadProfileInfo() throws IOException;
+    Profile loadProfileInfo(String currentUserToken) throws IOException;
 
     /**
      * Метод для получения списка друзей пользователя
@@ -30,7 +30,7 @@ public interface IProfileRepository {
      * @throws IOException исключение, выбрасываемое, если от сервера пришла ошибка
      */
     @NonNull
-    List<Profile> loadFriendsList() throws IOException;
+    List<Profile> loadFriendsList(String currentUserToken) throws IOException;
 
     /**
      * Метод для получения фотографий из альбомов пользователей
@@ -40,7 +40,7 @@ public interface IProfileRepository {
      * @throws IOException исключение, выбрасываемое, если от сервера пришла ошибка
      */
     @NonNull
-    List<AlbumPhoto> loadAlbumPhotos(String userId) throws IOException;
+    List<AlbumPhoto> loadAlbumPhotos(String userId, String currentUserToken) throws IOException;
 
     /**
      * Метод для получения списка групп пользователя
@@ -49,5 +49,5 @@ public interface IProfileRepository {
      * @throws IOException исключение, выбрасываемое, если от сервера пришла ошибка
      */
     @NonNull
-    List<Group> loadGroups() throws IOException;
+    List<Group> loadGroups(String currentUserToken) throws IOException;
 }
