@@ -6,7 +6,11 @@ import com.example.vksbermvvm.data.modelProfile.ResponseExample;
 import com.example.vksbermvvm.domain.model.IProfileConverter;
 import com.example.vksbermvvm.domain.model.model.Profile;
 
-
+/**
+ * Конвертирует профиль пользователя из data сущностей в domain
+ *
+ * @author Цунский Роман on 2019-12-15
+ */
 public class ProfileConverter implements IProfileConverter<ResponseExample, Profile> {
 
     @NonNull
