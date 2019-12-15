@@ -6,6 +6,8 @@ import java.util.List;
 
 /**
  * Класс, содержашщий общую информацию об альбоме профиля
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 
 public class Response {

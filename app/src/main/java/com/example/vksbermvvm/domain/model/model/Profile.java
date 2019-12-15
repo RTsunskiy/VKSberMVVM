@@ -10,6 +10,8 @@ import java.util.Objects;
 
 /**
  * POJO объект, в котором хранится информация о профиле пользователя
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 
 public class Profile implements Parcelable {

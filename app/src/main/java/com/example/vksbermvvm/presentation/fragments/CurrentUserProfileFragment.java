@@ -27,6 +27,8 @@ import com.squareup.picasso.Picasso;
 
 /**
  * Фрагмент, реализующий логику отображения профиля текущего пользователя
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 public class CurrentUserProfileFragment extends Fragment {
 

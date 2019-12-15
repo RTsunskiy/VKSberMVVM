@@ -25,6 +25,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * Адаптер списка друзей пользователя унаследованный от интерфейса Filterable
  * для осуществления поиска друга в списке
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 public class FriendsListAdapter extends RecyclerView.Adapter<FriendsListAdapter.FriendHolder> implements Filterable {
 

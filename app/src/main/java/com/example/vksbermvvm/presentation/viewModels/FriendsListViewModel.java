@@ -18,6 +18,8 @@ import java.util.concurrent.Executor;
 
 /**
  * Вью модель со списком друзей пользователя
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 public class FriendsListViewModel extends ViewModel {
     private final Executor mExecutor;

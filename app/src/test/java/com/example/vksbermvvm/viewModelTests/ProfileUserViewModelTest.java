@@ -3,7 +3,7 @@ package com.example.vksbermvvm.viewModelTests;
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
 
 import com.example.vksbermvvm.R;
-import com.example.vksbermvvm.SynchronousExecutor;
+import com.example.vksbermvvm.testUtils.SynchronousExecutor;
 import com.example.vksbermvvm.domain.model.LoadAlbumPhotosException;
 import com.example.vksbermvvm.domain.model.LoadProfileException;
 import com.example.vksbermvvm.domain.model.ProfileInfoInteractor;
@@ -26,6 +26,11 @@ import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+/**
+ * Юнит тесты интеррактора {@link ProfileUserViewModel}
+ *
+ * @author Цунский Роман on 2019-12-15
+ */
 public class ProfileUserViewModelTest {
 
     @Rule

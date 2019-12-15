@@ -27,6 +27,8 @@ import com.example.vksbermvvm.presentation.viewModels.FriendsListViewModel;
 
 /**
  * Фрагмент со списком друзей пользователя
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 public class FriendsListFragment extends Fragment {
 
@@ -108,7 +110,9 @@ public class FriendsListFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                mFriendsListAdapter.getFilter().filter(newText);
+                if (mFriendsListAdapter != null) {
+                    mFriendsListAdapter.getFilter().filter(newText);
+                }
                 return false;
             }
         });

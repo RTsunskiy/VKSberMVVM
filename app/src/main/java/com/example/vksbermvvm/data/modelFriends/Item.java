@@ -4,6 +4,8 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * Класс, в котором содержится подробная информация о друге пользователя
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 
 public class Item {

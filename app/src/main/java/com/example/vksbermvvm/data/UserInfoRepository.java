@@ -19,17 +19,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Класс, в котором осуществляются все запросы к серверу ВКонтакте.
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 public class UserInfoRepository implements IProfileRepository {
     /**
      * Список констант с параметрами для осуществления запросов к серверу ВКонтакте
      */
-    private static final String BASE_URL = "https://api.vk.com/method/";
     private final String VK_API_VERSION = "5.103";
     private final String PROFILE_FIELDS = "bdate,home_town,country,photo_400_orig";
     private final String FRIENDS_FIELDS = "city,domain,nickname,bdate,city,country,photo_200_orig";
@@ -42,19 +41,13 @@ public class UserInfoRepository implements IProfileRepository {
     private final List<Profile> friendsList = new ArrayList<>();
     private final List<AlbumPhoto> photosList = new ArrayList<>();
     private final List<Group> groupList = new ArrayList<>();
-    private Retrofit mRetrofit;
 
 
     /**
      * Метод по созданию билдера библиотеки Retrofit
      */
-    public UserInfoRepository() {
-        mRetrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        mProfileApi = mRetrofit.create(JSONPlaceHolderApi.class);
+    public UserInfoRepository(JSONPlaceHolderApi retrofitApi) {
+        mProfileApi = retrofitApi;
     }
 
 

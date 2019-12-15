@@ -3,14 +3,11 @@ package com.example.vksbermvvm.viewModelTests;
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
 
 import com.example.vksbermvvm.R;
-import com.example.vksbermvvm.SynchronousExecutor;
-import com.example.vksbermvvm.domain.model.LoadFriendsException;
+import com.example.vksbermvvm.testUtils.SynchronousExecutor;
 import com.example.vksbermvvm.domain.model.LoadGroupsExceprtion;
 import com.example.vksbermvvm.domain.model.ProfileInfoInteractor;
 import com.example.vksbermvvm.domain.model.model.Group;
-import com.example.vksbermvvm.domain.model.model.Profile;
 import com.example.vksbermvvm.presentation.utils.IResourceWrapper;
-import com.example.vksbermvvm.presentation.viewModels.FriendsListViewModel;
 import com.example.vksbermvvm.presentation.viewModels.GroupsListViewModel;
 
 import org.junit.Before;
@@ -27,6 +24,11 @@ import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+/**
+ * Юнит тесты вью модели {@link GroupsListViewModel}
+ *
+ * @author Цунский Роман on 2019-12-15
+ */
 public class GroupListViewModelTest {
     @Rule
     public InstantTaskExecutorRule mInstantTaskExecutorRule = new InstantTaskExecutorRule();

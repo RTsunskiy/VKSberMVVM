@@ -4,6 +4,8 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * Класс, в котором содержится детальная информация о профиле пользователя, полученная от сервера ВКонтакте
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 
 public class Response {

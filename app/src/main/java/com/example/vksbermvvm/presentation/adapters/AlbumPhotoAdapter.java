@@ -20,6 +20,8 @@ import java.util.List;
 
 /**
  * Адаптер RecyclerView, отображающий фотографии из альбомов профилей
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 public class AlbumPhotoAdapter extends RecyclerView.Adapter<AlbumPhotoAdapter.AlbumHolder> {
 

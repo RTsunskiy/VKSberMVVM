@@ -2,6 +2,8 @@ package com.example.vksbermvvm.domain.model.model;
 
 /**
  * POJO объект, в котором хранится информация о группе, на которую подписан пользователь
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 
 public class Group {

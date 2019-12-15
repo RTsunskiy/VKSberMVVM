@@ -21,6 +21,8 @@ import com.example.vksbermvvm.presentation.viewModels.GroupsListViewModel;
 
 /**
  * Фрагмент, реализующий логику отображения списка групп, на которые полдписан пользователь
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 public class GroupsListFragment extends Fragment {
 

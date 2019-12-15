@@ -8,6 +8,8 @@ public class MyApplication extends Application {
 
     /**
      * Инициализация VKSdk
+     *
+     * @author Цунский Роман on 2019-12-15
      */
     @Override
     public void onCreate() {

@@ -17,6 +17,8 @@ import java.util.concurrent.Executor;
 
 /**
  * Вью модель списка групп пользователя
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 public class GroupsListViewModel extends ViewModel {
     private final Executor mExecutor;

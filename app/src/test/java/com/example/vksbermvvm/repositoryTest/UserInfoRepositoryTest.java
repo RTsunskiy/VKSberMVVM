@@ -1,4 +1,4 @@
-package com.example.vksbermvvm;
+package com.example.vksbermvvm.repositoryTest;
 
 import com.example.vksbermvvm.data.JSONPlaceHolderApi;
 import com.example.vksbermvvm.data.UserInfoRepository;
@@ -20,6 +20,11 @@ import retrofit2.Response;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+/**
+ * Юнит тесты репозитория {@link UserInfoRepository}
+ *
+ * @author Цунский Роман on 2019-12-15
+ */
 public class UserInfoRepositoryTest {
 
     private UserInfoRepository mUserInfoRepository;
@@ -30,7 +35,7 @@ public class UserInfoRepositoryTest {
     public void setUp() throws Exception {
         mJSONPlaceHolderApi = mock(JSONPlaceHolderApi.class);
         mProfile = mock(Profile.class);
-        mUserInfoRepository = new UserInfoRepository();
+        mUserInfoRepository = new UserInfoRepository(mJSONPlaceHolderApi);
     }
 
     @Test

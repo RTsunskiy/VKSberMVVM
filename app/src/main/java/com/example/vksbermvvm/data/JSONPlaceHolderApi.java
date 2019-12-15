@@ -12,6 +12,8 @@ import retrofit2.http.Query;
 
 /**
  * Интерфейс, в котором объявлены методы по работе с API ВКонтакте
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 
 public interface JSONPlaceHolderApi {

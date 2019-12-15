@@ -6,6 +6,8 @@ import com.vk.sdk.VKSdk;
 
 /**
  * Класс, в котором располагаются методы для авторизации пользователя
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 
 public class CurrentUser {

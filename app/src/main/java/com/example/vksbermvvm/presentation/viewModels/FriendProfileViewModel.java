@@ -17,6 +17,8 @@ import java.util.concurrent.Executor;
 
 /**
  * Вью модель профиля друга
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 public class FriendProfileViewModel extends ViewModel {
     private final Executor mExecutor;

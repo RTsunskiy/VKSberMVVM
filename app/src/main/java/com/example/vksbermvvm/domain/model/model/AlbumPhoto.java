@@ -5,6 +5,8 @@ import androidx.annotation.NonNull;
 
 /**
  * POJO объект, в котором хранится информация о фотографии из альбома пользователя
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 
 public class AlbumPhoto {

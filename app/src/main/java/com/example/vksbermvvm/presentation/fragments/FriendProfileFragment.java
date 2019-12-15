@@ -27,6 +27,8 @@ import com.squareup.picasso.Picasso;
 
 /**
  * Фрагмент для отображения профиля друга
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 public class FriendProfileFragment extends Fragment {
 

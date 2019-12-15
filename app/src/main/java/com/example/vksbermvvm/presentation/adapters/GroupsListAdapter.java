@@ -20,6 +20,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Адаптер списка групп, на которые подписан пользователь
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 public class GroupsListAdapter extends RecyclerView.Adapter<GroupsListAdapter.GroupHolder> {
 

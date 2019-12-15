@@ -12,6 +12,8 @@ import java.util.List;
 
 /**
  * Интерфейс с методами по получению информации о профилях
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 public interface IProfileRepository {
     /**

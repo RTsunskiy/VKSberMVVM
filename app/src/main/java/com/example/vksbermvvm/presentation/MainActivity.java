@@ -19,6 +19,8 @@ import com.vk.sdk.api.VKError;
 
 /**
  * Главное и единственное Activity
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 public class MainActivity extends AppCompatActivity {
 

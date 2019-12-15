@@ -5,6 +5,8 @@ import androidx.annotation.StringRes;
 /**
  * Обёртка над ресурсами приложения, нужна для того чтобы
  * вью модель и доменный слой не зависели от классов из Android SDK.
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 public interface IResourceWrapper {
 

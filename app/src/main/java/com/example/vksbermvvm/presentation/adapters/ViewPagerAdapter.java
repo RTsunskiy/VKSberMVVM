@@ -17,6 +17,8 @@ import java.util.List;
 
 /**
  * Адаптер для ViewPager2, полностью аналогичен адаптеру для RecyclerView
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.AlbumPhotoHolder> {
 

@@ -12,6 +12,8 @@ import java.util.List;
 
 /**
  * Класс, реализующий логику приложения по загрузке и обработке данных с сервера
+ *
+ * @author Цунский Роман on 2019-12-15
  */
 public class ProfileInfoInteractor {
     private final IProfileRepository mProfileRepository;
